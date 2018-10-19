@@ -1,0 +1,66 @@
+// 背景
+@mixin bg($url, $left: 100%, $top: 100%) {
+  background: {
+    image: url($url);
+    repeat: no-repeat;
+    size: $left $top;
+  }
+}
+
+// 字体
+@mixin font($size, $lineHeight: $size, $color: #fff) {
+  font-size: $size + px;
+  line-height: $lineHeight + px;
+  color: $color;
+}
+
+// 边框
+@mixin border($px: 1px,$borColor: #d9d9d9,$left: 0) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: $left;
+    bottom: 0;
+    width: 100%;
+    height: $px;
+    background: $borColor;
+  }
+}
+// 溢出
+@mixin ellipsis($width: 100%) {
+  width: $width;
+  @extend %ellipsis;
+}
+
+// 滚动条
+@mixin scrollBar($color:rgba(0, 0, 0, 0.2),$hoverColor: rgba(0, 0, 0, 0.3),$activeColor: rgba(0, 0, 0, 0.6)) {
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 10px;
+    &:hover{
+      background-color: $hoverColor;
+    }
+    &:active{
+      background-color: $activeColor;
+    }
+  }
+}
+
+/* 边框底部或顶部 */
+@mixin border-b ($height: 1px,$color: #D9D9D9) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $height;
+    background: $color;
+  }
+}

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors guyl (you@example.org)
+ * @date    2018-04-24 10:08:00
+ * @version $Id$
+ */
+	@media print {
+	    #coatedPrinterBox {
+	        background-color:#000!important;
+	    }
+	}

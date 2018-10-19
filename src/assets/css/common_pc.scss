@@ -1,0 +1,224 @@
+/*
+  created by linzy in 2018.2.25
+*/
+/*
+  布局类
+  */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  color: #5A5E66;
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+.comBox {
+  width: 100%;
+  height: 100%;
+}
+
+/*placeholder */
+#app input::placeholder {
+  color: #989898;
+}
+#app textarea::placeholder {
+  color: #989898;
+}
+#app textarea {
+  color: #606266;
+  font-family: Arial;
+}
+/* input number原生框 去除上下拉图标 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+  /*#app .el-date-editor input::placeholder {*/
+/*color: #989898;*/
+/*}*/
+/*
+  方法类
+  */
+/* 图片父框box */
+.imgBox {
+  display: inline-block;
+  font-size: 0;
+}
+
+.imgBox img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 边框 顶部1px 底部1px */
+.bor-1px-t {
+  position: relative;
+}
+
+.bor-1px-t:after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  color: #D9D9D9;
+  border-top: 1px solid #D9D9D9;
+}
+
+.bor-1px-b {
+  position: relative;
+}
+
+.bor-1px-b:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #D9D9D9;
+}
+
+/* 文字超出省略号 */
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.multipleSelect .el-tag {
+  white-space: normal;
+  height: auto;
+  line-height: 1.2;
+}
+
+/* 万能清除浮动 左浮动 右浮动 */
+.clearfix::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.floatL {
+  float: left;
+}
+
+.floatR {
+  float: right;
+}
+.postionR{
+  position: relative;
+}
+.postionA{
+  position: absolute;
+}
+
+/* 垂直居中 父框 子框 */
+.vertparent:after {
+  content: '.';
+  height: 100%;
+  width: 0;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.vertchild {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 禁止选中 */
+.noSelect {
+  user-select: none;
+}
+/* 表单必填 */
+.required::before{
+  content: '*';
+  color: #f00;
+}
+/*
+   elementUI reset
+*/
+/* toast提示框的高度*/
+.el-message {
+  top: 7px !important;
+}
+/* 表格 表格的长度 设置表头的颜色 cell防止换行 */
+#app .el-table {
+  width: calc(100% - 40px);
+  margin: 0 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#app .el-table th {
+  background-color: #f7f8f9;
+}
+/* input disabled 样式reset*/
+#app .el-input__inner[disabled="disabled"]{
+  color: #5A5E66;
+}
+/* 日期下拉框 固定关闭按钮的位置 防止跳行*/
+#app .el-date-editor{
+  position: relative;
+}
+#app .el-date-editor .el-range__close-icon{
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+/* el-col 下 form表单长度100% */
+.el-input, .el-select, .el-autocomplete, .el-date-editor, .el-cascader {
+  width: 100%;
+}
+
+#app .el-upload-list__item-actions{
+  cursor: zoom-in;
+}
+/* 自定义搜索中的数字组合框 */
+#app .inputRange {
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  padding: 0 10px;
+  .yiyi-money1 {
+    line-height: 30px;
+    color: #999;
+    font-size: 14px;
+  }
+  .el-input__inner {
+    border: 0;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .line {
+    text-align: center;
+    line-height: 30px;
+  }
+  .el-col {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+
+
+
