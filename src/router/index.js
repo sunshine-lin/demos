@@ -24,6 +24,12 @@ export default new Router({
             name: 'anchor',
             meta: { requireAuth: false, title: "锚点滚动" },
             component: components.anchor
+        },
+        {
+            path: '/elTable',
+            name: 'elTable',
+            meta: { requireAuth: false, title: "锚点滚动" },
+            component: components.elTable
         }
     ]
 })

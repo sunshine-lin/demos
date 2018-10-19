@@ -15,7 +15,8 @@ export default {
   data () {
     return {
         routerList: [
-            {text: '锚点滚动',name: 'anchor'}
+            {text: '锚点滚动',name: 'anchor'},
+            {text: '表格边框大小',name: 'elTable'},
         ]
     }
   }

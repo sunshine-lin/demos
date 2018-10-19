@@ -6,8 +6,10 @@
 // const publicityPage = resolve => require([ '@/components/publicityPage/publicityPage.vue';
 import index from "@/components/index.vue";
 import anchor from "@/components/anchor.vue";
+import elTable from "@/components/elTable.vue";
 
 export default {
     index,
     anchor,
+    elTable,
 };

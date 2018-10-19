@@ -159,17 +159,7 @@ input[type="number"]{
 .el-message {
   top: 7px !important;
 }
-/* 表格 表格的长度 设置表头的颜色 cell防止换行 */
-#app .el-table {
-  width: calc(100% - 40px);
-  margin: 0 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
 
-#app .el-table th {
-  background-color: #f7f8f9;
-}
 /* input disabled 样式reset*/
 #app .el-input__inner[disabled="disabled"]{
   color: #5A5E66;
