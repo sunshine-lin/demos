@@ -6,11 +6,13 @@ import qs from "querystring";
 import echarts from "echarts";
 import underscore from "underscore";
 import jquery from "jquery";
+import echarts from "echarts";
 // 全局引入
 Vue.prototype.qs = qs;
 Vue.prototype.echarts = echarts;
 Vue.prototype._ = underscore;
 Vue.prototype.$ = jquery;
+Vue.prototype.echarts = echarts;
 
 // 验证是否拥有权限 返回布尔值
 Vue.prototype.isHasPre = function(...rest) {

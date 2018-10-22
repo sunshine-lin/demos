@@ -1,9 +1,9 @@
 <template>
   <div class="comBox" id="indexCom">
-    <el-row :gutter="10">
+    <el-row>
       <el-col v-for="(item,index) in routerList" :key="`router_${index}`"
-              :xs="8" :sm="6" :md="4" :lg="3" :xl="2">
-        <router-link :to="{name: item.name}">{{item.text}}</router-link>
+              :xs="8" :sm="6" :md="4" :lg="3" :xl="2" class="colItem">
+        <router-link :to="{name: item.name}" >{{item.text}}</router-link>
       </el-col>
     </el-row>
   </div>
@@ -23,9 +23,13 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
   #indexCom{
-
+    .colItem{
+      font-size: 16px;
+      line-height: 2em;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
   }
 </style>
