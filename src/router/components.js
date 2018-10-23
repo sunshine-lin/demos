@@ -7,9 +7,13 @@
 import index from "@/components/index.vue";
 import anchor from "@/components/anchor.vue";
 import elTable from "@/components/elTable.vue";
+import baiduMap from "@/components/baiduMap.vue";
+import echarts from "@/components/echarts.vue";
 
 export default {
-    index,
-    anchor,
-    elTable,
+  index,
+  anchor,
+  elTable,
+  baiduMap,
+  echarts,
 };
