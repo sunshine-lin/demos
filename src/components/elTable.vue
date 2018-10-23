@@ -78,17 +78,26 @@
         mounted() {
             $('.el-table__header-wrapper').on('mouseup', (ev) => {
                 setTimeout(() => {
-                    var tempArr = []
+//                    var tempArr = [];
+                    var tempObj = {};
                     $('.el-table__header-wrapper th').each((i, ele) => {
-                        tempArr.push($(ele).width())
+//                        var obj = {};
+//                        console.log($(ele).text())
+                        if ($(ele).text()) {
+                            tempObj[$(ele).text()] = $(ele).width();
+                        }
                     })
-                    var widthArr = tempArr.slice(0, -1)
-                    widthArr.forEach((item, index) => {
-                        this.optionList[index].width = item;
+//                    var widthArr = tempArr.slice(0, -1)
+//                    widthArr.forEach((item, index) => {
+//                        this.optionList[index].width = item;
+//                    })
+                    this.optionList.forEach((item,index)=>{
+                        item.width = tempObj[item.label]
                     })
-                    console.log(widthArr, this.optionList)
+                    console.log(1111,this.optionList)
                 }, 500)
             })
+            this.sortable();
 
         },
         activated () {
@@ -98,7 +107,40 @@
         },
         deactivated() {
         },
-        methods: {}
+        methods: {
+            sortable () {
+                var _this = this;
+                var ele = $('.el-table__header tr')[0];
+                Sortable.create(ele,{
+                    onEnd:function (evt) {
+//                        [_this.optionList[evt.newIndex],_this.optionList[evt.oldIndex]] =  [_this.optionList[evt.oldIndex],_this.optionList[evt.newIndex]]
+//                        console.log(_this.optionList)
+                        var arrOrder = [];
+                        $('.el-table__header-wrapper th').each((i, ele) => {
+//                        var obj = {};
+//                        console.log($(ele).text())
+
+                            if ($(ele).text()) {
+                                arrOrder.push($(ele).text())
+//                                tempObj[$(ele).text()] = $(ele).width();
+                            }
+                        })
+                        var tempArr = [];
+                        arrOrder.forEach((item,index)=>{
+                            _this.optionList.forEach(item2 => {
+                                if (item2.label === item) {
+                                    tempArr.push(item2)
+                                }
+                            })
+                        })
+                        console.log('tempArr',tempArr)
+                        _this.optionList = tempArr;
+                        console.log('_this.optionList',_this.optionList)
+                        _this.$forceUpdate()
+                    }
+                })
+            }
+        }
     }
 </script>
 
