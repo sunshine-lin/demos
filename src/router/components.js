@@ -13,6 +13,7 @@ import echarts from "@/components/echarts.vue";
 import bootstrap from "@/components/bootstrap.vue";
 import happyScroll from "@/components/happyScroll.vue";
 import qrCode from "@/components/qrCode.vue";
+import copy from "@/components/copy.vue";
 
 export default {
   index,
@@ -24,4 +25,5 @@ export default {
   bootstrap,
   happyScroll,
   qrCode,
+  copy,
 };

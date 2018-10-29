@@ -22,6 +22,7 @@ export default {
             {text: 'bootstrap',name: 'bootstrap'},
             {text: '滚动条美化',name: 'happyScroll'},
             {text: '二维码带图片',name: 'qrCode'},
+            {text: '复制黏贴',name: 'copy'},
         ]
     }
   }

@@ -62,5 +62,11 @@ export default new Router({
       meta: {requireAuth: false, title: "qrCode"},
       component: components.qrCode
     },
+    {
+      path: '/copy',
+      name: 'copy',
+      meta: {requireAuth: false, title: "copy"},
+      component: components.copy
+    },
   ]
 })
