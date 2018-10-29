@@ -43,6 +43,24 @@ export default new Router({
       name: 'echarts',
       meta: {requireAuth: false, title: "echarts图表"},
       component: components.echarts
-    }
+    },
+    {
+      path: '/bootstrap',
+      name: 'bootstrap',
+      meta: {requireAuth: false, title: "bootstrap"},
+      component: components.bootstrap
+    },
+    {
+      path: '/happyScroll',
+      name: 'happyScroll',
+      meta: {requireAuth: false, title: "happyScroll"},
+      component: components.happyScroll
+    },
+    {
+      path: '/qrCode',
+      name: 'qrCode',
+      meta: {requireAuth: false, title: "qrCode"},
+      component: components.qrCode
+    },
   ]
 })

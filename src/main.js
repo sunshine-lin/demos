@@ -13,6 +13,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI);
 
+// 全局引入vue-happy-scroll
+import HappyScroll from 'vue-happy-scroll'
+// 引入css
+import 'vue-happy-scroll/docs/happy-scroll.css'
+Vue.use(HappyScroll)
+
 // 引入配置 全局配置 公共组件 自定义过滤器 自定义命令 全局方法
 import '@/assets/vue/axios.js'
 import '@/assets/vue/config.js'

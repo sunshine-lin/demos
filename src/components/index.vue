@@ -17,6 +17,11 @@ export default {
         routerList: [
             {text: '锚点滚动',name: 'anchor'},
             {text: '表格边框大小',name: 'elTable'},
+            {text: '百度地图',name: 'baiduMap'},
+            {text: 'echarts图表',name: 'echarts'},
+            {text: 'bootstrap',name: 'bootstrap'},
+            {text: '滚动条美化',name: 'happyScroll'},
+            {text: '二维码带图片',name: 'qrCode'},
         ]
     }
   }
@@ -25,11 +30,14 @@ export default {
 
 <style lang="scss">
   #indexCom{
+    padding: 30px;
+    background: #f2f2f2;
     .colItem{
       font-size: 16px;
       line-height: 2em;
       text-align: center;
       border: 1px solid #ddd;
+      background: #fff;
     }
   }
 </style>
