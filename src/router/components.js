@@ -14,6 +14,7 @@ import bootstrap from "@/components/bootstrap.vue";
 import happyScroll from "@/components/happyScroll.vue";
 import qrCode from "@/components/qrCode.vue";
 import copy from "@/components/copy.vue";
+import nav from "@/components/nav.vue";
 
 export default {
   index,
@@ -26,4 +27,5 @@ export default {
   happyScroll,
   qrCode,
   copy,
+  nav,
 };

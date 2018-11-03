@@ -23,6 +23,7 @@ export default {
             {text: '滚动条美化',name: 'happyScroll'},
             {text: '二维码带图片',name: 'qrCode'},
             {text: '复制黏贴',name: 'copy'},
+            {text: '导航栏悬浮',name: 'nav'},
         ]
     }
   }
@@ -39,6 +40,7 @@ export default {
       text-align: center;
       border: 1px solid #ddd;
       background: #fff;
+      margin-bottom: 15px;
     }
   }
 </style>

@@ -68,5 +68,11 @@ export default new Router({
       meta: {requireAuth: false, title: "copy"},
       component: components.copy
     },
+    {
+      path: '/nav',
+      name: 'nav',
+      meta: {requireAuth: false, title: "nav"},
+      component: components.nav
+    },
   ]
 })
