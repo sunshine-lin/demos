@@ -1,6 +1,10 @@
 <!-- created by sunshine-lin in 2018.10.10 -->
 <template>
     <div class="comBox" id="navCom">
+      <div class="box">
+        <p v-for="(item,index) in 2" :key="`p_${index}`"
+           style="line-height: 30px;border-bottom: 1px solid #ddd;">{{item}}</p>
+      </div>
       <transition name="el-zoom-in-top">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <el-menu-item index="1">处理中心</el-menu-item>
@@ -47,6 +51,7 @@
         },
         activated() {
           $('#navCom').on('scroll',(ev)=>{
+            console.log($('#navCom .el-menu').position().top)
             this.scrolltop = ev.target.scrollTop;
           })
         },
@@ -78,12 +83,14 @@
       /*padding-top: 60px;*/
       .el-menu {
         position: absolute;
-        left: 0;
-        top: 0;
+        /*left: 0;*/
+        /*top: 0;*/
         width: 100%;
       }
       .box{
-        padding-top: 60px;
+        position: absolute;
+        width: 100%;
+        /*padding-top: 60px;*/
       }
     }
 </style>

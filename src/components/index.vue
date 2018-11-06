@@ -19,11 +19,13 @@ export default {
             {text: '表格边框大小',name: 'elTable'},
             {text: '百度地图',name: 'baiduMap'},
             {text: 'echarts图表',name: 'echarts'},
-            {text: 'bootstrap',name: 'bootstrap'},
+            {text: '页面滚动平滑',name: 'bootstrap'},
             {text: '滚动条美化',name: 'happyScroll'},
             {text: '二维码带图片',name: 'qrCode'},
             {text: '复制黏贴',name: 'copy'},
             {text: '导航栏悬浮',name: 'nav'},
+            {text: 'wbr英文换行',name: 'wbr'},
+            {text: '购物车动画',name: 'shoppingCart'},
         ]
     }
   }

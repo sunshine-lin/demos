@@ -2,37 +2,19 @@
 <template>
     <!--bootstrapCom组件用途
     props:
-    events: 
+    events:
     slots:
     use:
   -->
-    <el-scrollbar>
-    <div class="bootstrapCom" style="height: 200px;overflow-y: auto">
-
-            <div>01</div>
-            <div>02</div>
-            <div>03</div>
-            <div>04</div>
-            <div>05</div>
-            <div>06</div>
-            <div>07</div>
-            <div>08</div>
-            <div>09</div>
-            <div>10</div>
-            <div>11</div>
-            <div>12</div>
-            <div>13</div>
-            <div>14</div>
-            <div>15</div>
-            <div>16</div>
-            <div>17</div>
-            <div>18</div>
-            <div>19</div>
-            <div>20</div>
-
-
+    <div class="bootstrapCom">
+      <a v-for="(item,index) in 20" :key="`a_${index}`" style="margin-left: 10px;"
+         :href="`#id_${item}`" >{{item}}</a>
+      <ul class="box">
+        <li v-for="(item,index) in 20" :key="`li_${index}`"
+        :id="`id_${item}`">{{item}}</li>
+      </ul>
     </div>
-    </el-scrollbar>
+
 </template>
 
 <script>
@@ -53,7 +35,13 @@
         },
         deactivated() {
         },
-        methods: {}
+        methods: {
+          btnClick () {
+            document.getElementById('tab3').scrollIntoView({
+              behavior: "smooth"
+            })
+          }
+        }
     }
 </script>
 
@@ -61,6 +49,23 @@
     @import '../assets/scss/main.scss';
 
     .bootstrapCom {
-
+      /*width: 80%;*/
+      /*border: 1px solid #f00;*/
+      /*display: flex;*/
+      /*justify-content: space-evenly;*/
+      /*div{*/
+        /*width: 100px;*/
+        /*background: #f99;*/
+        /*border: 1px solid #ddd;*/
+      /*}*/
+      .box{
+        scroll-behavior: smooth;
+        height: 300px;
+        overflow-y: auto;
+        li{
+          line-height: 30px;
+          border: 1px solid #ddd;
+        }
+      }
     }
 </style>

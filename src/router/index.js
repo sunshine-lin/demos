@@ -74,5 +74,18 @@ export default new Router({
       meta: {requireAuth: false, title: "nav"},
       component: components.nav
     },
+    {
+      path: '/wbr',
+      name: 'wbr',
+      meta: {requireAuth: false, title: "wbr"},
+      component: components.wbr
+    },
+    {
+      path: '/shoppingCart',
+      name: 'shoppingCart',
+      meta: {requireAuth: false, title: "shoppingCart"},
+      component: components.shoppingCart
+    },
+
   ]
 })

@@ -15,6 +15,8 @@ import happyScroll from "@/components/happyScroll.vue";
 import qrCode from "@/components/qrCode.vue";
 import copy from "@/components/copy.vue";
 import nav from "@/components/nav.vue";
+import wbr from "@/components/wbr.vue";
+import shoppingCart from "@/components/shoppingCart.vue";
 
 export default {
   index,
@@ -28,4 +30,6 @@ export default {
   qrCode,
   copy,
   nav,
+  wbr,
+  shoppingCart,
 };
