@@ -86,6 +86,17 @@ export default new Router({
       meta: {requireAuth: false, title: "shoppingCart"},
       component: components.shoppingCart
     },
-
+    {
+      path: '/cookie',
+      name: 'cookie',
+      meta: {requireAuth: false, title: "cookie"},
+      component: components.cookie
+    },
+    {
+      path: '/animateApi',
+      name: 'animateApi',
+      meta: {requireAuth: false, title: "animateApi"},
+      component: components.animateApi
+    },
   ]
 })

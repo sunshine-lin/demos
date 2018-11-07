@@ -26,6 +26,8 @@ export default {
             {text: '导航栏悬浮',name: 'nav'},
             {text: 'wbr英文换行',name: 'wbr'},
             {text: '购物车动画',name: 'shoppingCart'},
+            {text: 'cookie',name: 'cookie'},
+            {text: 'animateApi',name: 'animateApi'},
         ]
     }
   }

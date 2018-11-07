@@ -17,6 +17,8 @@ import copy from "@/components/copy.vue";
 import nav from "@/components/nav.vue";
 import wbr from "@/components/wbr.vue";
 import shoppingCart from "@/components/shoppingCart.vue";
+import cookie from "@/components/cookie.vue";
+import animateApi from "@/components/animateApi.vue";
 
 export default {
   index,
@@ -32,4 +34,6 @@ export default {
   nav,
   wbr,
   shoppingCart,
+    cookie,
+    animateApi,
 };
