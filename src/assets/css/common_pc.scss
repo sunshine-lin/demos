@@ -207,7 +207,15 @@ input[type="number"]{
     margin-bottom: 0 !important;
   }
 }
-
+// el-scrollbar 样式重置
+#app {
+  .el-scrollbar,.el-scrollbar__wrap,.el-scrollbar__view{
+    height: 100%;
+  }
+  .el-scrollbar__wrap {
+    overflow-x: hidden;
+  }
+}
 
 
 

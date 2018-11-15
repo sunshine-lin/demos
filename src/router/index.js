@@ -98,5 +98,11 @@ export default new Router({
       meta: {requireAuth: false, title: "animateApi"},
       component: components.animateApi
     },
+    {
+      path: '/elScrollbar',
+      name: 'elScrollbar',
+      meta: {requireAuth: false, title: "elScrollbar"},
+      component: components.elScrollbar
+    },
   ]
 })
