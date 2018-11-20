@@ -29,6 +29,8 @@ export default {
             {text: 'cookie',name: 'cookie'},
             {text: 'animateApi',name: 'animateApi'},
             {text: 'el-scrollbar',name: 'elScrollbar'},
+            {text: 'css3-var',name: 'css3Var'},
+            {text: 'drag',name: 'drag'},
         ]
     }
   }

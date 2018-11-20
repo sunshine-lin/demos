@@ -104,5 +104,17 @@ export default new Router({
       meta: {requireAuth: false, title: "elScrollbar"},
       component: components.elScrollbar
     },
+    {
+      path: '/css3Var',
+      name: 'css3Var',
+      meta: {requireAuth: false, title: "css3Var"},
+      component: components.css3Var
+    },
+    {
+      path: '/drag',
+      name: 'drag',
+      meta: {requireAuth: false, title: "drag"},
+      component: components.drag
+    },
   ]
 })

@@ -20,6 +20,8 @@ import shoppingCart from "@/components/shoppingCart.vue";
 import cookie from "@/components/cookie.vue";
 import animateApi from "@/components/animateApi.vue";
 import elScrollbar from "@/components/elScrollbar.vue";
+import css3Var from "@/components/css3Var.vue";
+import drag from "@/components/drag.vue";
 
 export default {
   index,
@@ -38,4 +40,6 @@ export default {
     cookie,
     animateApi,
   elScrollbar,
+  css3Var,
+  drag,
 };
