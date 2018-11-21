@@ -31,6 +31,7 @@ export default {
             {text: 'el-scrollbar',name: 'elScrollbar'},
             {text: 'css3-var',name: 'css3Var'},
             {text: 'drag',name: 'drag'},
+            {text: 'regex',name: 'regex'},
         ]
     }
   }

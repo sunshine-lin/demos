@@ -22,6 +22,7 @@ import animateApi from "@/components/animateApi.vue";
 import elScrollbar from "@/components/elScrollbar.vue";
 import css3Var from "@/components/css3Var.vue";
 import drag from "@/components/drag.vue";
+import regex from "@/components/regex.vue";
 
 export default {
   index,
@@ -42,4 +43,5 @@ export default {
   elScrollbar,
   css3Var,
   drag,
+  regex,
 };

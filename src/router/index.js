@@ -116,5 +116,11 @@ export default new Router({
       meta: {requireAuth: false, title: "drag"},
       component: components.drag
     },
+    {
+      path: '/regex',
+      name: 'regex',
+      meta: {requireAuth: false, title: "regex"},
+      component: components.regex
+    },
   ]
 })
