@@ -144,6 +144,22 @@
         created() {
         },
         mounted() {
+          console.log(/industr(?:y|ies)/.test('industry'))
+
+          let str = "2018-11-28";
+//          let re = /(\d+)(-)/g;
+          let re = /-/g;
+          str = str.replace(re, function($0, $1, $2){
+            // 第一个参数：$0（母亲)
+            // 第二个参数：$1（第一个孩子）
+            // 第三个参数：$2 (第二个孩子)
+            console.log("$0：" + $0); // 2018- 以及 11-
+            console.log("$1：" + $1); // 2018 以及 11
+            console.log("$2：" + $2); // - 以及 -
+            return '.';
+          });
+          console.log(str); // 2018.11.28
+
         },
         activated() {
         },

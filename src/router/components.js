@@ -23,6 +23,8 @@ import elScrollbar from "@/components/elScrollbar.vue";
 import css3Var from "@/components/css3Var.vue";
 import drag from "@/components/drag.vue";
 import regex from "@/components/regex.vue";
+import barrage from "@/components/barrage.vue";
+import others from "@/components/others.vue";
 
 export default {
   index,
@@ -44,4 +46,6 @@ export default {
   css3Var,
   drag,
   regex,
+  barrage,
+  others,
 };

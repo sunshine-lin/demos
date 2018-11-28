@@ -3,7 +3,6 @@
 * */
 import Vue from "vue";
 import qs from "querystring";
-import echarts from "echarts";
 import underscore from "underscore";
 import jquery from "jquery";
 import echarts from "echarts";
@@ -12,7 +11,6 @@ Vue.prototype.qs = qs;
 Vue.prototype.echarts = echarts;
 Vue.prototype._ = underscore;
 Vue.prototype.$ = jquery;
-Vue.prototype.echarts = echarts;
 
 // 验证是否拥有权限 返回布尔值
 Vue.prototype.isHasPre = function(...rest) {
@@ -43,22 +41,11 @@ Vue.prototype.changeTitle = title => {
   eleTitle.innerHTML = title;
 };
 
-// 生成json的方法 makeJson
-Vue.prototype.makeJson = (arr1, arr2, key1, key2) => {
-  let arr = [];
-  for (let i = 0; i < arr1.length; i++) {
-    let obj = {};
-    obj[key1] = arr1[i];
-    obj[key2] = arr2[i];
-    arr.push(obj);
-  }
-  return arr;
-};
 
 // 对象加前缀 + 清除属性为空的值 不传pre前缀 则为筛选非空对象属性
 Vue.prototype.preData = function(obj, pre = "") {
-  var tempObj = {};
-  for (var k in obj) {
+  let tempObj = {};
+  for (let k in obj) {
     if (this._.isArray(obj[k]) || this._.isObject(obj[k])) {
       if (!this._.isEmpty(obj[k])) {
         tempObj[pre + k] = obj[k];
@@ -73,28 +60,22 @@ Vue.prototype.preData = function(obj, pre = "") {
 };
 // 对象加前缀
 Vue.prototype.addPre = function(obj, pre) {
-  var tempObj = {};
-  for (var k in obj) {
+  let tempObj = {};
+  for (let k in obj) {
     tempObj[pre + k] = obj[k];
   }
   return tempObj;
 };
 
-// 数字添加前缀 补0
-Vue.prototype.tens = function(n) {
-  if (n < 10) return "0" + n;
-  else return n;
-};
-
 // 时间戳转成倒计时
 Vue.prototype.stampToDate = function(stamp) {
-  var newStamp = stamp / 1000;
+  let newStamp = stamp / 1000;
   if (newStamp > 0) {
-    var d = parseInt(newStamp / (24 * 60 * 60));
-    var h = parseInt((newStamp / (60 * 60)) % 24);
-    var m = parseInt((newStamp / 60) % 60);
-    var s = parseInt(newStamp % 60);
-    var str =
+    let d = parseInt(newStamp / (24 * 60 * 60));
+    let h = parseInt((newStamp / (60 * 60)) % 24);
+    let m = parseInt((newStamp / 60) % 60);
+    let s = parseInt(newStamp % 60);
+    let str =
       (d ? d + "日" : "") +
       (h ? h + "时" : "") +
       (m ? m + "分" : "") +
@@ -108,16 +89,16 @@ Vue.prototype.stampToDate = function(stamp) {
 // 时间戳转化成日期格式 stamp为时间戳
 Vue.prototype.dateToFormat = function(stamp, format, sign) {
   if (stamp) {
-    var symbol = sign ? sign : "-",
+    let symbol = sign ? sign : "-",
       oD = new Date(+stamp),
-      y = oD.getFullYear(),
-      M = oD.getMonth() + 1,
-      d = oD.getDate(),
-      h = oD.getHours(),
-      m = oD.getMinutes(),
-      s = oD.getSeconds(),
-      D = y + symbol + this.tens(M) + symbol + this.tens(d),
-      T = this.tens(h) + ":" + this.tens(m) + ":" + this.tens(s);
+      y = oD.getFullYear() + '',
+      M = oD.getMonth() + 1 + '',
+      d = oD.getDate() + '',
+      h = oD.getHours() + '',
+      m = oD.getMinutes() + '',
+      s = oD.getSeconds() + '',
+      D = y + symbol + M.padStart(2,'0') + symbol + d.padStart(2,'0'),
+      T = `${h.padStart(2,'0')}:${m.padStart(2,'0')}:${s.padStart(2,'0')}`;
     if (format) {
       switch (format) {
         case "yyyy-mm-dd":
@@ -138,38 +119,16 @@ Vue.prototype.dateToFormat = function(stamp, format, sign) {
   }
 };
 
-// 数组中通过key的值查询相应的label的方法 key为json数组中的key
-// label为需要查询的label的key
-Vue.prototype.getLabel = function(arr, label, key, value) {
-  var length = arr.length;
-  for (var i = 0; i < length; i++) {
-    if (arr[i][key] === value) {
-      return arr[i][label];
-      i = length;
-    }
-  }
-};
 // 转化成transfer穿梭框 所需要的数据结构 	array[{ key, label, disabled }]
 //
 Vue.prototype.trunTransferData = function(arr, id, name) {
-  var tempArr = [];
-  var length = arr.length;
-  for (var i = 0; i < length; i++) {
+  let tempArr = [];
+  let length = arr.length;
+  for (let i = 0; i < length; i++) {
     tempArr.push({ key: arr[i][id], label: arr[i][name], disabled: false });
   }
   return tempArr;
 };
-
-// 字符串 转化成数字的id
-Vue.prototype.numberArr = function(ids) {
-  var tempArr = [];
-  if (ids) {
-    var arr = ids.split(",");
-    tempArr = arr.map(Number);
-  }
-  return tempArr;
-};
-
 // 重新登录
 Vue.prototype.reLogin = function() {
   localStorage.removeItem("userData");
@@ -180,11 +139,11 @@ Vue.prototype.reLogin = function() {
 
 // 设置表格高度
 Vue.prototype.setTableHeight = function(tableHeight) {
-  var setHeight = () => {
+  let setHeight = () => {
     this.$nextTick(() => {
-      var tableBodyHeight = this.$(".el-table__body").height();
-      var tableHeaderHeight = this.$(".el-table__header").height();
-      var comMainBoxHeight = this.$("#comMainBox").height();
+      let tableBodyHeight = this.$(".el-table__body").height();
+      let tableHeaderHeight = this.$(".el-table__header").height();
+      let comMainBoxHeight = this.$("#comMainBox").height();
       if (tableBodyHeight + tableHeaderHeight > comMainBoxHeight) {
         this.$set(this.$data, tableHeight, "100%");
       } else if (tableBodyHeight === 0) {
@@ -199,44 +158,6 @@ Vue.prototype.setTableHeight = function(tableHeight) {
     setHeight();
   };
 };
-//自动生成入库编号
-(Vue.prototype.getRadomNum = function() {
-  let date = new Date();
-  let year = date.getFullYear(),
-    month =
-      date.getMonth() + 1 < 10
-        ? "0" + (date.getMonth() + 1)
-        : date.getMonth() + 1,
-    day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate(),
-    hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
-    min = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
-    sec = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-  let radomNum =
-    year.toString() +
-    month.toString() +
-    day.toString() +
-    hours.toString() +
-    min.toString() +
-    sec.toString();
-  return radomNum;
-}),
-  /*
-*   导出数据
-*       表格id      (1:备件列表;2:人员列表;3:设备列表;4:客户列表)
-*       optionList  列表选项数组
-* */
-  (Vue.prototype.exportData = function(table_id, optionList) {
-    var columns = this._.pluck(optionList, "value");
-    var names = this._.pluck(optionList, "label");
-    var params = {
-      "rec.table_id": table_id,
-      "rec.export_select_columus": columns.join(","),
-      "rec.export_select_columus_name": names.join(",")
-    };
-    location.href = `/api/common/exportData?rec.table_id=${table_id}&rec.export_select_columus=${columns.join(
-      ","
-    )}&rec.export_select_columus_name=${names.join(",")}`;
-  });
 
 // 获取tree组件所需要的数组格式
 Vue.prototype.getTreeList = function(arr) {
@@ -272,48 +193,6 @@ Vue.prototype.getTreeList = function(arr) {
     }
   }
   return parentArr;
-};
-
-// 是否是管理员
-Vue.prototype.isAdmin = function() {
-  if (localStorage.hasOwnProperty("userData")) {
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    if (!userData.role_ens) return false;
-    if (userData.role_ens.indexOf("admin") > -1) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
-};
-
-// 是否是部门负责人
-Vue.prototype.isHead = function() {
-  if (localStorage.hasOwnProperty("userData")) {
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    if (userData.head_flag === 2) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
-};
-
-// 全局的类型下拉
-Vue.prototype.globalTypeList = function() {
-  return [
-    { label: "出库", value: 1 },
-    { label: "借用", value: 2 },
-    { label: "归还", value: 3 },
-    { label: "领用", value: 4 },
-    { label: "展会", value: 5 },
-    { label: "试用", value: 6 },
-    { label: "投放", value: 7 }
-  ];
 };
 
 /**
@@ -399,7 +278,7 @@ Vue.prototype.validateArea = function(rule, value, callback) {
 };
 //日期格式化
 Date.prototype.dateFormat = function(format) {
-  var o = {
+  let o = {
     "M+": this.getMonth() + 1, //month
     "d+": this.getDate(), //day
     "h+": this.getHours(), //hour
@@ -416,7 +295,7 @@ Date.prototype.dateFormat = function(format) {
     );
   }
 
-  for (var k in o) {
+  for (let k in o) {
     if (new RegExp("(" + k + ")").test(format)) {
       format = format.replace(
         RegExp.$1,
@@ -431,7 +310,7 @@ Date.prototype.dateFormat = function(format) {
 Vue.prototype.getMapPoint = function(address, city) {
   // 创建地址解析器实例
   return new Promise(function(resolve, reject) {
-    var myGeo = new BMap.Geocoder();
+    let myGeo = new BMap.Geocoder();
     // 将地址解析结果显示在地图上，并调整地图视野
     myGeo.getPoint(
       address,
@@ -475,7 +354,7 @@ Vue.prototype.synchronousData = function(optionName, data) {
   if (optionList) {
     optionList.forEach((oitem, oindex) => {
       if ((oitem.value.indexOf("_") > 0) && !isNaN(oitem.value.split("_")[1])) {
-        var flag = false;
+        let flag = false;
         data.forEach((item, index) => {
           if (oitem.value.split("_")[1] + "" === item.extra_id + "") {
             flag = true;
@@ -646,13 +525,13 @@ Vue.prototype.simpleProvince = function (str) {
 Vue.prototype.amountUpper = function (n) {
   if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n)) return "数据非法";
   if (n == 0) return "零元";
-  var unit = "仟佰拾亿仟佰拾万仟佰拾元角分", str = "";
+  let unit = "仟佰拾亿仟佰拾万仟佰拾元角分", str = "";
   n += "00";
-  var p = n.indexOf('.');
+  let p = n.indexOf('.');
   if (p >= 0)
     n = n.substring(0, p) + n.substr(p+1, 2);
   unit = unit.substr(unit.length - n.length);
-  for (var i=0; i < n.length; i++)
+  for (let i=0; i < n.length; i++)
     str += '零壹贰叁肆伍陆柒捌玖'.charAt(n.charAt(i)) + unit.charAt(i);
   return str.replace(/零(仟|佰|拾|角)/g, "零").replace(/(零)+/g, "零").replace(/零(万|亿|元)/g, "$1").replace(/(亿)万|壹(拾)/g, "$1$2").replace(/^元零?|零分/g, "").replace(/元$/g, "元整");
 };

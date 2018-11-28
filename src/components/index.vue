@@ -15,6 +15,7 @@ export default {
   data () {
     return {
         routerList: [
+            {text: '其他杂项',name: 'others'},
             {text: '锚点滚动',name: 'anchor'},
             {text: '表格边框大小',name: 'elTable'},
             {text: '百度地图',name: 'baiduMap'},
@@ -31,7 +32,8 @@ export default {
             {text: 'el-scrollbar',name: 'elScrollbar'},
             {text: 'css3-var',name: 'css3Var'},
             {text: 'drag',name: 'drag'},
-            {text: 'regex',name: 'regex'},
+            {text: '正则表达式',name: 'regex'},
+            {text: '弹幕',name: 'barrage'},
         ]
     }
   }

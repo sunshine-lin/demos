@@ -122,5 +122,17 @@ export default new Router({
       meta: {requireAuth: false, title: "regex"},
       component: components.regex
     },
+    {
+      path: '/barrage',
+      name: 'barrage',
+      meta: {requireAuth: false, title: "barrage"},
+      component: components.barrage
+    },
+    {
+      path: '/others',
+      name: 'others',
+      meta: {requireAuth: false, title: "others"},
+      component: components.others
+    },
   ]
 })
