@@ -29,7 +29,7 @@
           console.log(x,y)
           for (let i =0;i<5;i++) {
             [x,y] = [y,x+y];
-            console.log(x,y)
+//            console.log(x,y)
           }
           // 数组互换
           let arr = [{a:1},{b:2},{c:3}];
@@ -38,8 +38,31 @@
           // es6 字符串遍历
           let str = 'abcdefg';
           for (let w of str) {
-            console.log(w)
+//            console.log(w)
           }
+
+          function* helloWorldGenerator() {
+            yield 'hello';
+            yield 'world';
+            return 'ending';
+          }
+
+          var hw = helloWorldGenerator();
+          console.log(hw.next().value)
+          console.log(hw.next().value)
+          console.log(hw.next().value)
+          async function a1(x) {
+            if (x == 5) {
+              return await setTimeout(()=>{
+                console.log(111)
+              },2000)
+            } else {
+              await console.log(222)
+            }
+          }
+          a1(5).then(()=>{
+            console.log(333)
+          })
         },
         activated() {
         },
