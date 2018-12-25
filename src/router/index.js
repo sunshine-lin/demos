@@ -134,5 +134,17 @@ export default new Router({
       meta: {requireAuth: false, title: "others"},
       component: components.others
     },
+    {
+      path: '/animateCss',
+      name: 'animateCss',
+      meta: {requireAuth: false, title: "animateCss"},
+      component: components.animateCss
+    },
+    {
+      path: '/css',
+      name: 'css',
+      meta: {requireAuth: false, title: "css"},
+      component: components.css
+    },
   ]
 })

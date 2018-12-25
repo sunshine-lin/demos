@@ -26,7 +26,6 @@ import '@/assets/vue/config.js'
 import '@/assets/vue/filters.js'
 import '@/assets/vue/directives.js'
 import '@/assets/vue/prototype.js'
-
 new Vue({
   el: '#app',
   router,

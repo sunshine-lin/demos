@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" v-cloak>
         <keep-alive>
             <router-view/>
         </keep-alive>
@@ -24,4 +24,10 @@
             z-index: 9999;
         }
     }
+    [v-cloak]{
+      display: none;
+    }
+  .box22{
+    color: #f99;
+  }
 </style>
