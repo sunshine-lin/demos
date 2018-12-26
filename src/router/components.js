@@ -24,10 +24,13 @@ import css3Var from "@/components/css3Var.vue";
 import drag from "@/components/drag.vue";
 import regex from "@/components/regex.vue";
 import barrage from "@/components/barrage.vue";
+import others from "@/components/others.vue";
+import animateCss from "@/components/animateCss.vue";
+import css from "@/components/css.vue";
 // import others from "@/components/others.vue";
-const others = () => import("@/components/others.vue");
-const animateCss = () => import("@/components/animateCss.vue");
-const css = () => import("@/components/css.vue");
+// const others = () => import("@/components/others.vue");
+// const animateCss = () => import("@/components/animateCss.vue");
+// const css = () => import("@/components/css.vue");
 export default {
   index,
   anchor,
