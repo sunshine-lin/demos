@@ -6,6 +6,7 @@
         <router-link :to="{name: item.name}" >{{item.text}}</router-link>
       </el-col>
     </el-row>
+    <canvas width="400px" height="400px" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
   </div>
 </template>
 
@@ -34,6 +35,8 @@ export default {
             {text: 'drag',name: 'drag'},
             {text: '正则表达式',name: 'regex'},
             {text: '弹幕',name: 'barrage'},
+            {text: 'animate.css',name: 'animateCss'},
+            {text: 'css',name: 'css'},
         ]
     }
   }
