@@ -136,6 +136,6 @@ Vue.filter("formatNum", val => {
   } else if (Number(numStr) >= 1e4) {
     return (Number(numStr)/1e4).toFixed(1) + '万' + unitStr
   } else {
-    return val
+    return Number(val).toFixed(1)
   }
 });

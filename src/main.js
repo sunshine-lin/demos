@@ -26,10 +26,21 @@ import '@/assets/vue/config.js'
 import '@/assets/vue/filters.js'
 import '@/assets/vue/directives.js'
 import '@/assets/vue/prototype.js'
-
+import globalData from '@/assets/vue/globalData.js'
 new Vue({
   el: '#app',
   router,
+    // data: {
+    //     globalData,
+    // },
+    computed: {
+        globalData:{
+          get: function () {
+                return globalData
+            }
+
+        },
+    },
   components: { App },
   template: '<App/>'
 })
