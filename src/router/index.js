@@ -146,5 +146,11 @@ export default new Router({
       meta: {requireAuth: false, title: "css"},
       component: components.css
     },
+    {
+      path: '/grid',
+      name: 'grid',
+      meta: {requireAuth: false, title: "grid"},
+      component: components.grid
+    },
   ]
 })
