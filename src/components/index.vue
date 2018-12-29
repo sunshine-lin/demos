@@ -38,6 +38,7 @@ export default {
             {text: '弹幕',name: 'barrage'},
             {text: 'animate.css',name: 'animateCss'},
             {text: 'css',name: 'css'},
+            {text: 'grid',name: 'grid'},
         ]
     }
   }
