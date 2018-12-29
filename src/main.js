@@ -27,6 +27,25 @@ import '@/assets/vue/filters.js'
 import '@/assets/vue/directives.js'
 import '@/assets/vue/prototype.js'
 import globalData from '@/assets/vue/globalData.js'
+// 引入打印
+// import VueHtmlToPaper from 'vue-html-to-paper';
+// import 'static/lib/js/jquery.min.js';
+// import 'static/lib/js/jquery.PrintArea.min.js';
+
+const options = {
+  name: '_blank',
+  // specs: [
+  //   'fullscreen=yes',
+  //   'titlebar=yes',
+  //   'scrollbars=yes'
+  // ],
+  // styles: [
+  //   'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+  //   'https://unpkg.com/kidlat-css/css/kidlat.css'
+  // ]
+}
+
+// Vue.use(VueHtmlToPaper,options);
 new Vue({
   el: '#app',
   router,
