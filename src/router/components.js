@@ -32,6 +32,7 @@ import css from "@/components/css.vue";
 // const animateCss = () => import("@/components/animateCss.vue");
 // const css = () => import("@/components/css.vue");
 const grid = () => import("@/components/grid.vue");
+const map = () => import("@/components/map.vue");
 export default {
   index,
   anchor,
@@ -56,4 +57,5 @@ export default {
   animateCss,
   css,
   grid,
+  map,
 };

@@ -16,6 +16,19 @@
         :label="`${item.label}(${item.value})`" :value="item">
       </el-option>
     </el-select>
+    <!-- text-combine-upright 文字竖向排列显示 -->
+    <div class="text-combine-uprightBox">
+      <p lang="zh-Hant">民國<span class="num">105</span
+      >年<span class="num">4</span
+      >月<span class="num">29</span>日</p>
+    </div>
+    <div class="text-decoration">
+      红色波浪形下划线
+    </div>
+    <div class="text-overflow" style="width:100px">   暗地里附近奥if静安寺路口的附近阿里山的风景阿斯兰的积分   </div>
+    <div class="text-transform">Iam is My favorite things</div>
+    <span class="scale">scale</span>
+    <div class="underlineBox">实现下划线动画</div>
   </div>
 </template>
 
@@ -74,5 +87,51 @@
       /*filter: saturate(30%);*/
       /*filter: sepia(60%);*/
     }
+    .text-combine-uprightBox{
+      writing-mode: vertical-rl; font: 24px serif;
+      .num{
+        text-combine-upright: all;
+      }
+    }
+    .text-decoration:hover{
+      text-decoration: underline wavy red;       /*红色波浪形下划线*/
+    }
+    .text-overflow{
+      border: 1px solid red;
+      white-space: pre;
+      white-space: normal;
+      color: blue;
+      /*text-wrap: none;*/
+      /*overflow: hidden;*/
+      /*text-overflow: clip;*/
+      text-overflow: "…";
+      text-overflow: fade(5%);
+      &:first-letter{
+        font-size: 30px;
+      }
+      &::selection {
+        color: gold;
+        background: red;
+      }
+    }
+    .text-transform{
+      text-transform: uppercase;
+      text-transform: lowercase;
+      text-transform: capitalize;
+      text-shadow: 5px 5px 5px black;
+    }
+    .scale{
+      display: inline-block;
+      /*position: absolute;*/
+      color: #f00;
+      transform: scale(0.8);
+    }
+    .underlineBox{
+      text-decoration: red underline wavy;
+      line-height: 50px;
+    }
+  }
+  @viewport {
+    zoom: 2;
   }
 </style>

@@ -152,5 +152,11 @@ export default new Router({
       meta: {requireAuth: false, title: "grid"},
       component: components.grid
     },
+    {
+      path: '/map',
+      name: 'map',
+      meta: {requireAuth: false, title: "map"},
+      component: components.map
+    },
   ]
 })

@@ -38,6 +38,7 @@ export default {
             {text: 'animate.css',name: 'animateCss'},
             {text: 'css',name: 'css'},
             {text: 'grid',name: 'grid'},
+            {text: 'map',name: 'map'},
         ]
     }
   }

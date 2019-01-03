@@ -15,6 +15,48 @@
       <div class="clipPath">
         文字被clip掉了 看不到了看不到了看不到了
       </div>
+      <ul>
+        <li><data value="3967381398">迷你番茄酱</data></li>
+        <li><data value="3967381399">巨无霸番茄酱</data></li>
+        <li><data value="3967381400">超级巨无霸番茄酱</data></li>
+      </ul>
+      <span>40px</span>
+      <small>单独small </small>
+
+      <p>Type the following in the Run dialog: <kbd>cmd</kbd><br />Then click the OK button.</p>
+
+      <span style="font-size:30px;">大字体<small>小字体<small>小小字体<small>小小小字体<small>小小小小字体</small></small></small></small></span>
+      <audio src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"
+             controls="controls" volume="0.3">
+        Your browser does not support the <code>audio</code> element.
+      </audio>
+      <base target="_blank">
+      <iframe id="Example2"
+              title="Example2"
+              width="400"
+              height="300"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              src="https://www.baidu.com"></iframe>
+      <label>Choose a browser from this list:
+        <input list="browsers" name="myBrowser" /></label>
+      <datalist id="browsers">
+        <option value="Chrome"/>
+        <option value="Firefox"/>
+        <option value="Internet Explorer"/>
+        <option value="Opera"/>
+        <option value="Safari"/>
+      </datalist>
+      <form action="test.php" method="post">
+        <fieldset>
+          <legend>Title</legend>
+          <input type="radio" id="radio"> <label for="radio">Click me</label>
+        </fieldset>
+      </form>
+      <p>Heat the oven to <meter min="200" max="500"
+                                 value="350">350 degrees</meter>.</p>
+      <progress value="70" max="100">70 %</progress>
     </div>
 </template>
 
@@ -184,6 +226,11 @@
         line-height: 100px;
         background: #f00;
         clip-path: polygon(0 0,100% 0%, 50% 50%, 100% 100%, 0% 100%);
+      }
+      input[list="browsers"]{
+        -webkit-appearance: none;   /* google */
+        -moz-appearance: none;  /* firefox */
+        appearance: none;       /* IE */
       }
     }
 </style>
