@@ -31,10 +31,15 @@ import css from "@/components/css.vue";
 // const others = () => import("@/components/others.vue");
 // const animateCss = () => import("@/components/animateCss.vue");
 // const css = () => import("@/components/css.vue");
+<<<<<<< HEAD
 import grid from "@/components/grid.vue";
 import table from "@/components/table.vue";
 import html from "@/components/html.vue";
 import canvas from "@/components/canvas.vue";
+=======
+const grid = () => import("@/components/grid.vue");
+const map = () => import("@/components/map.vue");
+>>>>>>> 6f37ea135bbb7d1d902a3d97c6222b5612b3a392
 export default {
   index,
   anchor,
@@ -59,7 +64,11 @@ export default {
   animateCss,
   css,
   grid,
+<<<<<<< HEAD
   table,
   html,
     canvas,
+=======
+  map,
+>>>>>>> 6f37ea135bbb7d1d902a3d97c6222b5612b3a392
 };

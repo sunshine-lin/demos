@@ -153,6 +153,7 @@ export default new Router({
       component: components.grid
     },
     {
+<<<<<<< HEAD
       path: '/table',
       name: 'table',
       meta: {requireAuth: false, title: "table"},
@@ -169,6 +170,12 @@ export default new Router({
       name: 'canvas',
       meta: {requireAuth: false, title: "canvas"},
       component: components.canvas
+=======
+      path: '/map',
+      name: 'map',
+      meta: {requireAuth: false, title: "map"},
+      component: components.map
+>>>>>>> 6f37ea135bbb7d1d902a3d97c6222b5612b3a392
     },
   ]
 })

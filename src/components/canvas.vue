@@ -40,6 +40,7 @@
 //            this.drawArc(ctx)
 //            this.drawQuadraticCurveTo(ctx)
 //            this.drawBezierCurveTo(ctx)
+            // 波浪
             var y1 = 50,y2 = 350;
             var _this = this;
             var sign = 1;
@@ -146,7 +147,6 @@
                 ctx.lineTo(400,400);
                 ctx.closePath();
                 ctx.stroke();
-
                 ctx.fillStyle = fillStyle;
                 ctx.fill();
             },
