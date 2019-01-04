@@ -118,24 +118,32 @@ Vue.filter("emptyShow", (val) => {
  */
 
 Vue.filter("formatNum", val => {
-  if (val === undefined || val === null) return '';
-  let numStr = '',
-      unitStr = '';
-  if (typeof (val) === 'number') {
-    numStr = val;
-  } else if (typeof (val) === 'string') {
-    numStr = parseFloat(val);
-    unitStr = val.replace(numStr,'');
-  } else {
-    return val;
-  }
-  if (Number(numStr) >= 1e12) {
-    return (Number(numStr)/1e12).toFixed(1) + '万亿' + unitStr
-  } else if (Number(numStr) >= 1e8) {
-    return (Number(numStr)/1e8).toFixed(1) + '亿' + unitStr
-  } else if (Number(numStr) >= 1e4) {
-    return (Number(numStr)/1e4).toFixed(1) + '万' + unitStr
-  } else {
-    return Number(val).toFixed(1)
-  }
+    if (val === undefined || val === null) return '';
+    let numStr = '',
+        unitStr = '';
+    if (typeof (val) === 'number') {
+        numStr = val;
+    } else if (typeof (val) === 'string') {
+        numStr = parseFloat(val);
+        unitStr = val.replace(numStr,'');
+        if (/^\.0/.test(unitStr)) {
+            unitStr = '';
+        }
+    } else {
+        return val;
+    }
+    if (Number(numStr) >= 1e12) {
+        return (Number(numStr)/1e12).toFixed(1) + '万亿' + unitStr
+    } else if (Number(numStr) >= 1e8) {
+        return (Number(numStr)/1e8).toFixed(1) + '亿' + unitStr
+    } else if (Number(numStr) >= 1e4) {
+        return (Number(numStr)/1e4).toFixed(1) + '万' + unitStr
+    } else {
+        if (/\./.test(val)) {
+            return Number(val).toFixed(1)
+        } else {
+            return val
+        }
+    }
 });
+

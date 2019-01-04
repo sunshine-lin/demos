@@ -152,5 +152,23 @@ export default new Router({
       meta: {requireAuth: false, title: "grid"},
       component: components.grid
     },
+    {
+      path: '/table',
+      name: 'table',
+      meta: {requireAuth: false, title: "table"},
+      component: components.table
+    },
+    {
+      path: '/html',
+      name: 'html',
+      meta: {requireAuth: false, title: "html"},
+      component: components.html
+    },
+    {
+      path: '/canvas',
+      name: 'canvas',
+      meta: {requireAuth: false, title: "canvas"},
+      component: components.canvas
+    },
   ]
 })

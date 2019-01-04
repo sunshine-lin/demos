@@ -39,6 +39,9 @@ export default {
             {text: 'animate.css',name: 'animateCss'},
             {text: 'css',name: 'css'},
             {text: 'grid',name: 'grid'},
+            {text: 'table',name: 'table'},
+            {text: 'html',name: 'html'},
+            {text: 'canvas',name: 'canvas'},
         ]
     }
   }

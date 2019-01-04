@@ -31,7 +31,10 @@ import css from "@/components/css.vue";
 // const others = () => import("@/components/others.vue");
 // const animateCss = () => import("@/components/animateCss.vue");
 // const css = () => import("@/components/css.vue");
-const grid = () => import("@/components/grid.vue");
+import grid from "@/components/grid.vue";
+import table from "@/components/table.vue";
+import html from "@/components/html.vue";
+import canvas from "@/components/canvas.vue";
 export default {
   index,
   anchor,
@@ -56,4 +59,7 @@ export default {
   animateCss,
   css,
   grid,
+  table,
+  html,
+    canvas,
 };

@@ -24,7 +24,9 @@
     <div id="printArea" :style="printStyleObj">printAreaprintAreaprintAreaprintAreaprintArea</div>
     <div id="createElement"></div>
     <el-button type="primary" @click="btnClick('createElement')">createElement</el-button>
-    <div id="counterBox">
+    <el-button type="primary" @click.once="btnClick('insertRule')">insertRule</el-button>
+    <el-button type="primary" @click.once="btnClick('deleteRule')">deleteRule</el-button>
+    <div id="counterBox" style="color: #f00">
       <div>counter</div>
       <div>counter</div>
       <div>counter</div>
@@ -107,6 +109,9 @@ export default {
     a1(5).then(() => {
       //                console.log(333)
     });
+    console.log(document.styleSheets[0].cssRules[0].cssText)
+    console.log(getComputedStyle(document.querySelector('#counterBox'),null))
+     var s = document.styleSheets[document.styleSheets.length - 1];
   },
   activated() {
     class Person {
@@ -141,6 +146,18 @@ export default {
         case "createElement":
           var span = `<span>adlfjaldfjadflj</span>`;
           $("#createElement").append(span);
+          break;
+        case "insertRule":
+            console.log('insertRule');
+            var rule = "#counterBox { font-size: 36px }";
+            var styleSheetList = document.styleSheets[0];
+            styleSheetList.insertRule(rule, 0);
+            console.log('document.styleSheets[0]',document.styleSheets[0])
+          break;
+        case "deleteRule":
+            console.log('deleteRule');
+            var styleSheetList = document.styleSheets[0];
+            styleSheetList.deleteRule(0);
           break;
       }
     },
