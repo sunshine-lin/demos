@@ -39,13 +39,10 @@ export default {
             {text: 'animate.css',name: 'animateCss'},
             {text: 'css',name: 'css'},
             {text: 'grid',name: 'grid'},
-<<<<<<< HEAD
             {text: 'table',name: 'table'},
             {text: 'html',name: 'html'},
             {text: 'canvas',name: 'canvas'},
-=======
             {text: 'map',name: 'map'},
->>>>>>> 6f37ea135bbb7d1d902a3d97c6222b5612b3a392
         ]
     }
   }

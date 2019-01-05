@@ -1,13 +1,5 @@
 <!-- created by sunshine-lin in 2018.10.10 -->
 <template>
-<<<<<<< HEAD
-  <div class="comBox" id="others">
-    <el-button type="primary">登录中{{'.'.repeat(repeatNum)}}</el-button>
-    <div v-once>日期：{{dateToFormat(new Date().getTime())}}</div>
-    <div class="box22">{{number}}</div>
-    <div class="imgBox" :style="imgBoxStyle">
-      <!--<img src="./images/timg.jpg" alt="">-->
-=======
     <div class="comBox" id="others">
         <el-button type="primary">登录中{{'.'.repeat(repeatNum)}}</el-button>
       <div v-once>日期：{{dateToFormat(new Date().getTime())}}</div>
@@ -65,8 +57,6 @@
       <p>Heat the oven to <meter min="200" max="500"
                                  value="350">350 degrees</meter>.</p>
       <progress value="70" max="100">70 %</progress>
->>>>>>> 6f37ea135bbb7d1d902a3d97c6222b5612b3a392
-    </div>
     <div class="mapBox"></div>
     <a href="http://www.baidu.com"></a>
     <a href="http://www.sina.com.cn"></a>
@@ -220,7 +210,6 @@ export default {
             styleSheetList.deleteRule(0);
           break;
       }
-<<<<<<< HEAD
     },
     print() {
       var link = `<link rel="stylesheet" href="static/lib/css/print.css" media="print">`;
@@ -343,14 +332,12 @@ export default {
     // counter-reset: section;
     &::before{
       content: counter(section);
-      counter-increment: section;      
-=======
+      counter-increment: section;
       input[list="browsers"]{
         -webkit-appearance: none;   /* google */
         -moz-appearance: none;  /* firefox */
         appearance: none;       /* IE */
       }
->>>>>>> 6f37ea135bbb7d1d902a3d97c6222b5612b3a392
     }
   }
 }
