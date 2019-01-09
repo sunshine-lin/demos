@@ -7,6 +7,7 @@
     use:
   -->
     <div id="canvasCom" class="comBox">
+
         <canvas id="tutorial" width="150" height="150">
             <!-- 如不支持 则显示 -->
             <span>对不起，你的浏览器不支持canvas</span>
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+    import $ from 'jquery'
     export default {
         name: 'canvasCom',
         props: {},
@@ -52,7 +54,12 @@
 //            this.drawImage(ctx);
 //            this.drawImagSlicing(ctx);
 //            this.drawSaveRestore(ctx);
-            this.drawTransform(ctx);
+//            this.drawTransform(ctx);
+//            this.drawClip(ctx);
+//            this.drawClip2(ctx);
+            this.drawClipImage(ctx);
+
+
         },
         activated() {
         },
@@ -316,6 +323,82 @@
                 ctx.resetTransform() // 等于ctx.setTransform(1, 0, 0, 1, 0, 0);
                 ctx.fillRect(50, 50, 100, 100);
             },
+            // 裁切 clip
+            drawClip(ctx) {
+//              ctx.fillRect(0,0,150,150);
+                ctx.translate(75,75);
+
+                // Create a circular clipping path
+                ctx.beginPath();
+                ctx.arc(0,0,60,0,Math.PI*2,true);
+                ctx.clip();
+
+                // draw background
+                var lingrad = ctx.createLinearGradient(0,-75,0,75);
+                lingrad.addColorStop(0, '#232256');
+                lingrad.addColorStop(1, '#143778');
+
+                ctx.fillStyle = lingrad;
+                ctx.fillRect(-75,-75,150,150);
+
+                // draw stars
+                for (var j=1;j<50;j++){
+                    ctx.save();
+                    ctx.fillStyle = '#fff';
+                    ctx.translate(75-Math.floor(Math.random()*150),
+                        75-Math.floor(Math.random()*150));
+                    this.drawStar(ctx,Math.floor(Math.random()*4)+2);
+                    ctx.restore();
+                }
+            },
+            // 裁切 图像
+            drawClipImage (ctx) {
+                var _this = this;
+                var img = new Image();
+                img.src = require('./images/meinv.jpg');
+                img.onload = function () {
+                    ctx.drawImage(img, 0, 0, 400, 400)
+                }
+                $('#tutorial').on('mousedown',function (ev){
+                    var initX = ev.offsetX;
+                    var initY = ev.offsetY;
+                    $(document).on('mousemove',function (ev2){
+                        _this.drawClip2(ctx,initX,initY,ev2.offsetX,ev2.offsetY,img)
+                    })
+                    $(document).on('mouseup',function(){
+                        $(document).off('mousemove')
+                    })
+                })
+            },
+            drawClip2 (ctx,initX,initY,moveX,moveY,img) {
+                ctx.clearRect(0,0,400,400);
+                ctx.save()
+                ctx.beginPath()
+//                ctx.lineWidth = 50;
+//                ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+                ctx.rect(initX,initY,moveX-initX,moveY-initY);
+                ctx.strokeText((moveX - initX) + ' , ' + (moveY-initY), initX + 10,initY - 10);
+                ctx.stroke()
+                ctx.clip();
+                ctx.drawImage(img, 0, 0, 400, 400);
+                ctx.restore()
+            },
+            drawStar(ctx,r){
+                ctx.save();
+                ctx.beginPath()
+                ctx.moveTo(r,0);
+                for (var i=0;i<9;i++){
+                    ctx.rotate(Math.PI/5);
+                    if(i%2 == 0) {
+                        ctx.lineTo((r/0.525731)*0.200811,0);
+                    } else {
+                        ctx.lineTo(r,0);
+                    }
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
         }
     }
 </script>
@@ -324,6 +407,8 @@
 
     #canvasCom {
         padding: 20px;
+        /*background: url(./images/meinv.jpg) no-repeat 20px 20px;*/
+        /*background-size: 400px 400px;*/
         #tutorial {
             outline: 2px solid #ddd;
         }
