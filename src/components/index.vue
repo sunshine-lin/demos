@@ -1,6 +1,5 @@
 <template>
   <div class="comBox" id="indexCom">
-  
     <el-row>
       <el-col v-for="(item,index) in routerList" :key="`router_${index}`"
               :xs="8" :sm="6" :md="4" :lg="3" :xl="2" class="colItem">

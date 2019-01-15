@@ -162,6 +162,9 @@ export default {
     console.log(document.styleSheets[0].cssRules[0].cssText)
     console.log(getComputedStyle(document.querySelector('#counterBox'),null))
      var s = document.styleSheets[document.styleSheets.length - 1];
+      console.log('获取月份最后一天',(new Date(2011,1,0)).getDate())
+      console.log('获取月份最后一天2',(new Date(2011,2,0)).getDate())
+      console.log('获取月份最后一天3',(new Date()).getMonth() + 1)
   },
   activated() {
     class Person {
