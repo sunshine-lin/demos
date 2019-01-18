@@ -35,7 +35,8 @@ import grid from "@/components/grid.vue";
 import table from "@/components/table.vue";
 import html from "@/components/html.vue";
 import canvas from "@/components/canvas.vue";
-import map from "@/components/canvas.vue";
+import map from "@/components/map.vue";
+
 export default {
   index,
   anchor,
@@ -62,6 +63,6 @@ export default {
   grid,
   table,
   html,
-    canvas,
+  canvas,
   map,
 };
