@@ -176,5 +176,29 @@ export default new Router({
             meta: {requireAuth: false, title: "map"},
             component: components.map
         },
+        {
+            path: '/requestAnimationFrame',
+            name: 'requestAnimationFrame',
+            meta: {requireAuth: false, title: "requestAnimationFrame"},
+            component: components.requestAnimationFrame
+        },
+        {
+            path: '/defineproperty',
+            name: 'defineproperty',
+            meta: {requireAuth: false, title: "defineproperty"},
+            component: components.defineproperty
+        },
+        {
+            path: '/nodeEmailer',
+            name: 'nodeEmailer',
+            meta: {requireAuth: false, title: "nodeEmailer"},
+            component: components.nodeEmailer
+        },
+        {
+            path: '/canvasBg',
+            name: 'canvasBg',
+            meta: {requireAuth: false, title: "canvasBg"},
+            component: components.canvasBg
+        },
     ]
 })

@@ -81,6 +81,10 @@
       <div>counter</div>
       <div>counter</div>
     </div>
+        <div class="email">
+            <a href="mailto:1187181555@qq.com?subject=主题1&body=内容1">send mail</a>
+        </div>
+
   </div>
 </template>
 
@@ -164,7 +168,7 @@ export default {
      var s = document.styleSheets[document.styleSheets.length - 1];
       console.log('获取月份最后一天',(new Date(2011,1,0)).getDate())
       console.log('获取月份最后一天2',(new Date(2011,2,0)).getDate())
-      console.log('获取月份最后一天3',(new Date()).getMonth() + 1)
+      console.log('获取月份最后一天3',(new Date()).getMonth() + 1);
   },
   activated() {
     class Person {
