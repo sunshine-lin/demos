@@ -6,7 +6,6 @@
                 <router-link :to="{name: item.name}">{{item.text}}</router-link>
             </el-col>
         </el-row>
-        <canvas width="400px" height="400px" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
     </div>
 </template>
 

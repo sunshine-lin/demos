@@ -14,6 +14,9 @@
         <el-button @click="btnClick('reverse')" type="primary">reverse</el-button>
         <el-button @click="btnClick('reduce')" type="primary">reduce</el-button>
         <el-button @click="btnClick('generator')" type="primary">generator</el-button>
+        <a href="#133" class="link">www.baidu.com</a>
+        <a href="#233" class="link">www.baidu.com</a>
+        <a href="#333" class="link">www.baidu.com</a>
     </div>
 </template>
 
@@ -38,7 +41,8 @@
             this.genRes = this.gen();
         },
         mounted() {
-
+            this.browserType()
+//                console.log(this.browserType())
 //            function* gen2() {
 //                yield 1;
 //                yield 2;
@@ -159,6 +163,19 @@
 <style rel="stylesheet" lang="scss" scoped>
 
     #nodeEmailer {
-
+        .link{
+            &:link{
+                color: #17f3ff;
+            }
+            &:visited{
+                color: red;
+            }
+            &:hover{
+                color: yellow;
+            }
+            &:active {
+                color: green;
+            }
+        }
     }
 </style>

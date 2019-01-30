@@ -34,7 +34,30 @@ Vue.prototype.isHasPre = function (...rest) {
         return true;
     }
 };
-
+// 浏览器内核
+Vue.prototype.browserType = function (){
+    var ua = window.navigator.userAgent;
+    if (/msie.*trident/ig.test(ua)) {
+        return 'ie'
+    } else if (/applewebkit.*chrome/ig.test(ua)) {
+        return 'chrome'
+    } else if (/gecko.*firefox/ig.test(ua)) {
+        return 'firefox'
+    }  else if (/android/ig.test(ua)) {
+        return 'android'
+    } else {
+        return 'unknown'
+    }
+};
+// 手机系统类型
+Vue.prototype.phoneSystemType = function (){
+    var ua = window.navigator.userAgent;
+    if (/android/ig.test(ua)) {
+        return 'android'
+    } else {
+        return 'ios'
+    }
+};
 // 全局引入 改变title 适用于一个模块承当多个页面的情况
 Vue.prototype.changeTitle = title => {
     let eleTitle = document.getElementsByTagName("title")[0];

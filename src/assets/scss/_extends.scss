@@ -77,5 +77,36 @@
   display: inline-block;
   vertical-align: middle;
 }
+// 滚动条样式
+%scrollbar {
+  /* 火狐专属 */
+  scrollbar-color: #c5c5c5 transparent;
+  scrollbar-width: thin;
+  /* webkit内核 */
+  // 滚动条整体部分，其中的属性有width,height,background,border（就和一个块级元素一样）等
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  // 滚动条两端的按钮；可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  // 外层轨道；可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+  // 内层轨道，滚动条中间部分（除去）
+  &::-webkit-scrollbar-track-piece {
+    display: none;
+  }
+  // 滚动条里面可以拖动的那部分
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #c5c5c5;
+  }
+  // 滚动条的底角，水平和垂直滚动条相遇。
+  &::-webkit-scrollbar-corner {}
+}
 
 
