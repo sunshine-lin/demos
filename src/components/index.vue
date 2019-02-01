@@ -45,6 +45,7 @@
                     {text: 'defineproperty', name: 'defineproperty'},
                     {text: 'nodeEmailer', name: 'nodeEmailer'},
                     {text: 'canvasBg', name: 'canvasBg'},
+                    {text: 'scrollSnap', name: 'scrollSnap'},
                 ]
             }
         }

@@ -200,5 +200,11 @@ export default new Router({
             meta: {requireAuth: false, title: "canvasBg"},
             component: components.canvasBg
         },
+        {
+            path: '/scrollSnap',
+            name: 'scrollSnap',
+            meta: {requireAuth: false, title: "scrollSnap"},
+            component: components.scrollSnap
+        },
     ]
 })

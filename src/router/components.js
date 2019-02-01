@@ -40,6 +40,7 @@ import requestAnimationFrame from "@/components/requestAnimationFrame.vue";
 import defineproperty from "@/components/defineproperty.vue";
 import nodeEmailer from "@/components/nodeEmailer.vue";
 import canvasBg from "@/components/canvasBg.vue";
+import scrollSnap from "@/components/scrollSnap.vue";
 
 export default {
     index,
@@ -73,4 +74,5 @@ export default {
     defineproperty,
     nodeEmailer,
     canvasBg,
+    scrollSnap,
 };

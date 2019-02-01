@@ -1,35 +1,41 @@
 <!-- created by sunshine-lin in 2018.10.10 -->
 <template>
+  <!--
+    css 通过  position: sticky; 来实现
+  -->
     <div class="comBox" id="navCom">
+      <div class="pageTitle">页面标题123123</div>
       <div class="box">
-        <p v-for="(item,index) in 2" :key="`p_${index}`"
+        <p class="title">标题1111</p>
+        <p v-for="(item,index) in 50" :key="`p_${index}`"
            style="line-height: 30px;border-bottom: 1px solid #ddd;">{{item}}</p>
       </div>
-      <transition name="el-zoom-in-top">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-      </el-menu>
-
-      </transition>
       <div class="box">
-        <p v-for="(item,index) in 30" :key="`p_${index}`"
+        <p class="title">标题2222</p>
+        <p v-for="(item,index) in 50" :key="`p_${index}`"
            style="line-height: 30px;border-bottom: 1px solid #ddd;">{{item}}</p>
       </div>
-
+      <div>
+        <el-table
+                :data="tableData"
+                style="width: 100%">
+          <el-table-column
+                  prop="date"
+                  label="日期"
+                  width="180">
+          </el-table-column>
+          <el-table-column
+                  prop="name"
+                  label="姓名"
+                  width="180">
+          </el-table-column>
+          <el-table-column
+                  prop="address"
+                  label="地址">
+          </el-table-column>
+        </el-table>
+      </div>
+      <div class="bottomTitle">页面底部123123</div>
     </div>
 </template>
 
@@ -42,6 +48,43 @@
               activeIndex: '1',
               activeIndex2: '1',
               scrolltop: 0,
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }]
             }
         },
         created() {
@@ -50,23 +93,23 @@
 
         },
         activated() {
-          $('#navCom').on('scroll',(ev)=>{
-            console.log($('#navCom .el-menu').position().top)
-            this.scrolltop = ev.target.scrollTop;
-          })
+//          $('#navCom').on('scroll',(ev)=>{
+//            console.log($('#navCom .el-menu').position().top)
+//            this.scrolltop = ev.target.scrollTop;
+//          })
         },
         deactivated() {
         },
         watch: {
-          scrolltop (newVal,oldVal) {
-              if (newVal > oldVal) {
-                $('#navCom .el-menu').css({position: 'absolute'})
-              } else {
-                if (newVal > 60) {
-                  $("#navCom .el-menu").css({position: 'fixed'});
-                }
-              }
-          }
+//          scrolltop (newVal,oldVal) {
+//              if (newVal > oldVal) {
+//                $('#navCom .el-menu').css({position: 'absolute'})
+//              } else {
+//                if (newVal > 60) {
+//                  $("#navCom .el-menu").css({position: 'fixed'});
+//                }
+//              }
+//          }
         },
         methods: {
           handleSelect(key, keyPath) {
@@ -78,19 +121,32 @@
 
 <style rel="stylesheet" lang="scss">
     #navCom {
-      position: relative;
       overflow: auto;
-      /*padding-top: 60px;*/
+      .pageTitle{
+        position: sticky;
+        top: 0;
+        z-index: 11;
+        font-size: 20px;
+        line-height: 40px;
+        background: #3eb1ff;
+      }
+      .bottomTitle{
+        position: sticky;
+        bottom: 0;
+        font-size: 20px;
+        line-height: 40px;
+        background: #3eb1ff;
+      }
       .el-menu {
-        position: absolute;
-        /*left: 0;*/
-        /*top: 0;*/
-        width: 100%;
+        /*width: 100%;*/
       }
       .box{
-        position: absolute;
-        width: 100%;
-        /*padding-top: 60px;*/
+        .title{
+          position: sticky;
+          top: 40px;
+          z-index: 12;
+          background: #f99;
+        }
       }
     }
 </style>

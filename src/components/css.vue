@@ -35,6 +35,9 @@
     <a href="#333" class="link">www.baidu.com</a>
     <a href="./images/logo.png" download>downloadImage</a>
     <div class="gradientBox"></div>
+    <div class="fit-content">
+      1234
+    </div>
   </div>
 </template>
 
@@ -186,4 +189,8 @@
       /*background: linear-gradient(45deg,#000 0%, #000 70%, #D1D5E6 75%,white 80%,#D1D5E6 95%,#000 100%,#000)*/
     /*}*/
   /*}*/
+  .fit-content{
+    width: fit-content;
+    background: #f99;
+  }
 </style>
