@@ -29,6 +29,15 @@
     <div class="text-transform">Iam is My favorite things</div>
     <span class="scale">scale</span>
     <div class="underlineBox">实现下划线动画</div>
+    <!--伪类-->
+    <a href="#1" class="link">www.baidu.com</a>
+    <a href="#233" class="link">www.baidu.com</a>
+    <a href="#333" class="link">www.baidu.com</a>
+    <a href="./images/logo.png" download>downloadImage</a>
+    <div class="gradientBox"></div>
+    <div class="fit-content">
+      1234
+    </div>
   </div>
 </template>
 
@@ -43,19 +52,21 @@
           {label: 'blur', value: '5px'},
           {label: 'brightness', value: '0.4'},
           {label: 'contrast', value: '200%'},
-          {label: 'drop-shadow', value: 'drop-shadow(16px 16px 20px blue)'},
+          {label: 'drop-shadow', value: 'drop-shadow(16px 16px 20px #000)'},
           {label: 'grayscale', value: '50%'},
           {label: 'hue-rotate', value: '90deg'},
           {label: 'invert', value: '75%'},
           {label: 'opacity', value: '25%'},
           {label: 'saturate', value: '30%'},
           {label: 'sepia', value: '60%'},
-        ]
+        ],
+          num: -50
       }
     },
     created() {
     },
     mounted() {
+        this.setColor();
     },
     activated() {
     },
@@ -68,7 +79,17 @@
         if (val === 'brightness') {
 
         }
-      }
+      },
+        setColor () {
+          this.num += 2;
+          if (this.num == 100) {
+              this.num = -50;
+          }
+          document.querySelector('.gradientBox').style = `background: linear-gradient(60deg,#000 0%,#000 ${this.num}%, #D1D5E6 ${this.num}%,white ${this.num + 5}%,#D1D5E6 ${this.num + 10}%,#000 ${this.num + 15}%,#000)`
+            window.requestAnimationFrame(()=>{
+                this.setColor()
+            })
+        }
     }
   }
 </script>
@@ -79,7 +100,7 @@
       /*filter: filter(5px);*/
       /*filter: brightness(0.4);*/
       /*filter: contrast(200%);*/
-      /*filter: drop-shadow(16px 16px 20px blue);*/
+      /*filter: drop-shadow(16px 16px 20px #000);*/
       /*filter: grayscale(50%);*/
       /*filter: hue-rotate(90deg);*/
       /*filter: invert(75%);*/
@@ -100,7 +121,7 @@
       border: 1px solid red;
       white-space: pre;
       white-space: normal;
-      color: blue;
+      color: #000;
       /*text-wrap: none;*/
       /*overflow: hidden;*/
       /*text-overflow: clip;*/
@@ -133,5 +154,43 @@
   }
   @viewport {
     zoom: 2;
+  }
+  .link{
+    &:link{
+      color: #17f3ff;
+    }
+    &:visited{
+      color: red;
+    }
+    &:hover{
+      color: yellow;
+    }
+    &:active {
+      color: green;
+    }
+
+  }
+  .gradientBox{
+    width: 200px;
+    height: 50px;
+    outline: 1px solid #ddd;
+    /*background: linear-gradient(45deg,0% #fff, 40% #000 , 60% #000 100% #fff);*/
+    /*background: linear-gradient(45deg,#000 0%, #000 40%, #D1D5E6 45%,white 50%,#D1D5E6 55%,#000 60%,#000);*/
+    /*animation: colorGradient 2s infinite;*/
+  }
+  /*@keyframes colorGradient {*/
+    /*0% {*/
+      /*background: linear-gradient(45deg,#000 0%, #000 0%, #D1D5E6 5%,white 10%,#D1D5E6 15%,#000 20%,#000)*/
+    /*}*/
+    /*20% {*/
+      /*background: linear-gradient(45deg,#000 0%, #000 0%, #D1D5E6 25%,white 30%,#D1D5E6 35%,#000 40%,#000)*/
+    /*}*/
+    /*100% {*/
+      /*background: linear-gradient(45deg,#000 0%, #000 70%, #D1D5E6 75%,white 80%,#D1D5E6 95%,#000 100%,#000)*/
+    /*}*/
+  /*}*/
+  .fit-content{
+    width: fit-content;
+    background: #f99;
   }
 </style>

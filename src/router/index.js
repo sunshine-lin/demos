@@ -182,5 +182,29 @@ export default new Router({
             meta: {requireAuth: false, title: "requestAnimationFrame"},
             component: components.requestAnimationFrame
         },
+        {
+            path: '/defineproperty',
+            name: 'defineproperty',
+            meta: {requireAuth: false, title: "defineproperty"},
+            component: components.defineproperty
+        },
+        {
+            path: '/nodeEmailer',
+            name: 'nodeEmailer',
+            meta: {requireAuth: false, title: "nodeEmailer"},
+            component: components.nodeEmailer
+        },
+        {
+            path: '/canvasBg',
+            name: 'canvasBg',
+            meta: {requireAuth: false, title: "canvasBg"},
+            component: components.canvasBg
+        },
+        {
+            path: '/scrollSnap',
+            name: 'scrollSnap',
+            meta: {requireAuth: false, title: "scrollSnap"},
+            component: components.scrollSnap
+        },
     ]
 })

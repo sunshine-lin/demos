@@ -7,8 +7,11 @@
     use:
   -->
     <div id="canvasCom" class="comBox">
-
         <canvas id="tutorial" width="150" height="150">
+            <!-- 如不支持 则显示 -->
+            <span>对不起，你的浏览器不支持canvas</span>
+        </canvas>
+        <canvas id="tutorial2" width="150" height="150">
             <!-- 如不支持 则显示 -->
             <span>对不起，你的浏览器不支持canvas</span>
         </canvas>
@@ -58,8 +61,7 @@
 //            this.drawClip(ctx);
 //            this.drawClip2(ctx);
 //            this.drawClipImage(ctx);
-
-
+            this.drawImageData(ctx);
         },
         activated() {
         },
@@ -398,7 +400,22 @@
                 ctx.closePath();
                 ctx.fill();
                 ctx.restore();
-            }
+            },
+            // ImageData对象
+            drawImageData(ctx){
+                var img = new Image();
+                img.src = require('./images/meinv.jpg');
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0,tutorial.width,tutorial.height);
+                    var imageData = ctx.getImageData(150,0,250,250);
+                    var tutorial2 = document.querySelector('#tutorial2');
+                    var ctx2 = tutorial2.getContext('2d');
+                    ctx2.putImageData(imageData, 0, 0);
+                    console.log('imageData',imageData)
+                    var newImage = tutorial2.toDataURL('image/png');
+                    console.log('newImage',newImage)
+                };
+            },
         }
     }
 </script>
@@ -406,11 +423,16 @@
 <style rel="stylesheet" lang="scss" scoped>
 
     #canvasCom {
+
         padding: 20px;
         /*background: url(./images/meinv.jpg) no-repeat 20px 20px;*/
         /*background-size: 400px 400px;*/
         #tutorial {
             outline: 2px solid #ddd;
+            float: left;
+        }
+        #tutorial2{
+            float: left;
         }
     }
 </style>

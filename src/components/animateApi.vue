@@ -75,6 +75,7 @@
             { transform: 'translateY(-100%)' }
           ], {
             // timing options
+
             duration: 10000,
             iterations: Infinity
           });

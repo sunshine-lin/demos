@@ -1,13 +1,11 @@
 <template>
     <div class="comBox" id="indexCom">
-
         <el-row>
-            <el-col v-for="(item,index) in routerList" :key="`router_${index}`"
+            <el-col v-for="(item,index) in routerList" :key="`router_${index}`" :title="item.text"
                     :xs="8" :sm="6" :md="4" :lg="3" :xl="2" class="colItem">
                 <router-link :to="{name: item.name}">{{item.text}}</router-link>
             </el-col>
         </el-row>
-        <canvas width="400px" height="400px" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
     </div>
 </template>
 
@@ -44,13 +42,19 @@
                     {text: 'canvas', name: 'canvas'},
                     {text: 'map', name: 'map'},
                     {text: 'requestAnimationFrame', name: 'requestAnimationFrame'},
+                    {text: 'defineproperty', name: 'defineproperty'},
+                    {text: 'nodeEmailer', name: 'nodeEmailer'},
+                    {text: 'canvasBg', name: 'canvasBg'},
+                    {text: 'scrollSnap', name: 'scrollSnap'},
                 ]
             }
         }
     }
 </script>
 
-<style lang="scss">
+<style rel="stylesheet" lang="scss" scoped>
+    @import '../assets/scss/main.scss';
+
     #indexCom {
         padding: 30px;
         background: #f2f2f2;
@@ -61,6 +65,7 @@
             border: 1px solid #ddd;
             background: #fff;
             margin-bottom: 15px;
+            @extend %ellipsis;
         }
     }
 </style>

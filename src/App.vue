@@ -27,7 +27,4 @@ export default {
 [v-cloak] {
   display: none;
 }
-.box22 {
-  color: #f99;
-}
 </style>
