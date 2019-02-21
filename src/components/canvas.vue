@@ -42,7 +42,7 @@
 //            this.drawArc(ctx)
 //            this.drawQuadraticCurveTo(ctx)
 //            this.drawBezierCurveTo(ctx)
-//            this.drawWaveAnimate(ctx);
+            this.drawWaveAnimate(ctx);
 //            this.drawColors(ctx);
 //            this.drawLine(ctx);
 //            this.drawDash(ctx);
@@ -57,7 +57,7 @@
 //            this.drawTransform(ctx);
 //            this.drawClip(ctx);
 //            this.drawClip2(ctx);
-            this.drawClipImage(ctx);
+//            this.drawClipImage(ctx);
 
 
         },

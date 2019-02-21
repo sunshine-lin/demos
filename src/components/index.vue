@@ -43,6 +43,7 @@
                     {text: 'html', name: 'html'},
                     {text: 'canvas', name: 'canvas'},
                     {text: 'map', name: 'map'},
+                    {text: 'requestAnimationFrame', name: 'requestAnimationFrame'},
                 ]
             }
         }

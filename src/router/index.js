@@ -176,5 +176,11 @@ export default new Router({
             meta: {requireAuth: false, title: "map"},
             component: components.map
         },
+        {
+            path: '/requestAnimationFrame',
+            name: 'requestAnimationFrame',
+            meta: {requireAuth: false, title: "requestAnimationFrame"},
+            component: components.requestAnimationFrame
+        },
     ]
 })
