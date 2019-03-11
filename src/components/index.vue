@@ -46,6 +46,7 @@
                     {text: 'nodeEmailer', name: 'nodeEmailer'},
                     {text: 'canvasBg', name: 'canvasBg'},
                     {text: 'scrollSnap', name: 'scrollSnap'},
+                    {text: 'js', name: 'js'},
                 ]
             }
         }

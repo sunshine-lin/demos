@@ -37,13 +37,11 @@ import html from "@/components/html.vue";
 import canvas from "@/components/canvas.vue";
 import map from "@/components/map.vue";
 import requestAnimationFrame from "@/components/requestAnimationFrame.vue";
-<<<<<<< HEAD
-=======
 import defineproperty from "@/components/defineproperty.vue";
 import nodeEmailer from "@/components/nodeEmailer.vue";
 import canvasBg from "@/components/canvasBg.vue";
 import scrollSnap from "@/components/scrollSnap.vue";
->>>>>>> b01b022824e3174b53d80ef018f21fd48a9155a2
+import js from "@/components/js.vue";
 
 export default {
     index,
@@ -78,4 +76,5 @@ export default {
     nodeEmailer,
     canvasBg,
     scrollSnap,
+    js,
 };

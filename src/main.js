@@ -46,6 +46,9 @@ const options = {
 }
 
 // Vue.use(VueHtmlToPaper,options);
+
+import '@/assets/js/wavesurfer.min.js';
+
 new Vue({
   el: '#app',
   router,

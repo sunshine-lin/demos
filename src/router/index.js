@@ -206,5 +206,11 @@ export default new Router({
             meta: {requireAuth: false, title: "scrollSnap"},
             component: components.scrollSnap
         },
+        {
+            path: '/js',
+            name: 'js',
+            meta: {requireAuth: false, title: "js"},
+            component: components.js
+        },
     ]
 })

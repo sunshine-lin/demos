@@ -84,7 +84,15 @@
         <div class="email">
             <a href="mailto:1187181555@qq.com?subject=主题1&body=内容1">send mail</a>
         </div>
-
+        <el-date-picker
+                v-model="dateValueRange"
+                type="daterange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+        @change="changeCallBack($event,'dateRange')">
+        </el-date-picker>
+        <el-input v-model="dateDistance" readonly placeholder="多少天"></el-input>
   </div>
 </template>
 
@@ -102,7 +110,9 @@ export default {
         width: "200px",
         height: "200px"
       },
-      printStyleObj: {}
+      printStyleObj: {},
+        dateValueRange: [],
+        dateDistance: 0,
     };
   },
   beforeCreate() {
@@ -198,6 +208,16 @@ export default {
     }
   },
   methods: {
+      changeCallBack (val,from) {
+          switch (from) {
+              case 'dateRange':
+                  if (val) {
+                    var d = new Date(val[1]).getTime() - new Date(val[0]).getTime();
+                      this.dateDistance = d/(1000*60*60*24)
+                  }
+                  break;
+          }
+      },
     btnClick(from) {
       switch (from) {
         case "createElement":
