@@ -26,6 +26,7 @@ import '@/assets/vue/config.js'
 import '@/assets/vue/filters.js'
 import '@/assets/vue/directives.js'
 import '@/assets/vue/prototype.js'
+import '@/assets/vue/polyfill.js'
 import globalData from '@/assets/vue/globalData.js'
 // 引入打印
 // import VueHtmlToPaper from 'vue-html-to-paper';

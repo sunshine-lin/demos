@@ -10,6 +10,7 @@
             <!--<li @click="btnClick('toTop')">回到顶部</li>-->
         <!--</ul>-->
         <div id="waveform"></div>
+        <el-button type="primary" @click="btnClick('Notification')">Notification</el-button>
     </div>
 </template>
 
@@ -31,6 +32,7 @@
             var encodeData = btoa(123456);
             var decodeData = atob(encodeData);
             console.log(decodeData)
+
 //            var wavesurfer = WaveSurfer.create({
 //                container: '#waveform'
 //            });
@@ -45,6 +47,32 @@
                 switch (from) {
                     case 'toTop':
                         document.scrollingElement.scrollTop = 0
+                        break;
+                    case 'Notification':
+                        Notification.requestPermission().then(function(res) {
+                            console.log(res)
+                            if (res !== 'granted') return;
+
+                            var notice = new Notification('这是一个通知', {
+                                dir: 'auto',
+                                body: '通知的内容',
+                                tag: 'div',
+                                icon: '//image.zhangxinxu.com/image/study/s/s128/mm1.jpg',
+                                data: 'datadata123',        // 用来传参
+                                vibrate: [200, 100, 200],
+                                renotify: true,
+                                silent: false,
+                                sticky: false,
+                            })
+                            setTimeout(function () {
+                                notice.close()
+                            },2000)
+                            notice.onclick = function () {
+                                console.log('点击了通知:' + notice.data);
+                                notice.close()
+                            }
+                            // result可能是是granted, denied, 或default.
+                        });
                         break;
                 }
             }

@@ -42,6 +42,8 @@ import nodeEmailer from "@/components/nodeEmailer.vue";
 import canvasBg from "@/components/canvasBg.vue";
 import scrollSnap from "@/components/scrollSnap.vue";
 import js from "@/components/js.vue";
+import elementUI from "@/components/elementUI.vue";
+import previewImage from "@/components/previewImage.vue";
 
 export default {
     index,
@@ -77,4 +79,6 @@ export default {
     canvasBg,
     scrollSnap,
     js,
+    elementUI,
+    previewImage,
 };
