@@ -2,7 +2,7 @@
 <template>
     <!--scrollSnap组件用途
     props:
-    events: 
+    events:
     slots:
     use:
   -->
@@ -11,13 +11,17 @@
             <img src="./images/logo.png" alt="">
             <img src="./images/meinv.jpg" alt="">
         </div>
+        <div>{{sidebar}}</div>
+        <el-button type="primary" @click="sidebar = !sidebar">按钮</el-button>
     </div>
 </template>
 
 <script>
     export default {
         name: 'scrollSnap',
-        props: {},
+        props: {
+            sidebar: ''
+        },
         components: {},
         data() {
             return {}
@@ -25,12 +29,21 @@
         computed: {},
         watch: {},
         created() {
+          
         },
         mounted() {
         },
         activated() {
         },
         deactivated() {
+        },
+            beforeRouteLeave (to,from,next) {
+            if (this.sidebar) {
+                next(false)
+            } else {
+                next()
+            }
+
         },
         methods: {}
     }

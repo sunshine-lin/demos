@@ -5,7 +5,7 @@ import components from "./components";
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode: "history",
     routes: [
         {
@@ -203,8 +203,26 @@ export default new Router({
         {
             path: '/scrollSnap',
             name: 'scrollSnap',
+            alias: '/alias/abc/cde',
+            props: { default: true, sidebar: false },
             meta: {requireAuth: false, title: "scrollSnap"},
             component: components.scrollSnap
         },
     ]
 })
+router.beforeEach((to, from, next) => {
+    console.log('beforeEach to',to)
+    next()
+})
+router.beforeResolve((to,from,next) => {
+    console.log('beforeResolve')
+    next()
+})
+router.afterEach ((to,from)=> {
+    Vue.nextTick(()=>{
+        document.querySelector('title').innerHTML = to.meta.title;
+    })
+    console.log('afterEach')
+})
+
+export default router
