@@ -208,6 +208,30 @@ const router = new Router({
             meta: {requireAuth: false, title: "scrollSnap"},
             component: components.scrollSnap
         },
+        {
+            path: '/js',
+            name: 'js',
+            meta: {requireAuth: false, title: "js"},
+            component: components.js
+        },
+        {
+            path: '/elementUI',
+            name: 'elementUI',
+            meta: {requireAuth: false, title: "elementUI"},
+            component: components.elementUI
+        },
+        {
+            path: '/previewImage',
+            name: 'previewImage',
+            meta: {requireAuth: false, title: "previewImage"},
+            component: components.previewImage
+        },
+        {
+            path: '/vuex',
+            name: 'vuex',
+            meta: {requireAuth: false, title: "vuex"},
+            component: components.vuex
+        },
     ]
 })
 router.beforeEach((to, from, next) => {
