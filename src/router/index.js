@@ -224,5 +224,11 @@ export default new Router({
             meta: {requireAuth: false, title: "previewImage"},
             component: components.previewImage
         },
+        {
+            path: '/vuex',
+            name: 'vuex',
+            meta: {requireAuth: false, title: "vuex"},
+            component: components.vuex
+        },
     ]
 })

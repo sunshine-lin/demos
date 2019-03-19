@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 // 引入css reset.css 重置原始样式 iconfont字体图标
 import '@/assets/css/reset.css'
@@ -53,6 +54,7 @@ import '@/assets/js/wavesurfer.min.js';
 new Vue({
   el: '#app',
   router,
+    store,
     // data: {
     //     globalData,
     // },

@@ -53,22 +53,21 @@
                 return '12345'
             },
             mousewheel($event) {
-                console.log($event.deltaY)
                 // 放大
                 if ($event.deltaY < 0) {
-                    if (this.srcWidth <= 30) {
-                        this.srcWidth = 30;
+                    if (this.srcWidth >= 80) {
+                        this.srcWidth = 80;
                     } else {
-                        this.srcWidth += 5
+                        this.srcWidth += 3
                     }
 
                 }
                 // 缩小
                 if ($event.deltaY > 0) {
-                    if (this.srcWidth >= 80) {
-                        this.srcWidth = 80;
+                    if (this.srcWidth <= 30) {
+                        this.srcWidth = 30;
                     } else {
-                        this.srcWidth -= 5
+                        this.srcWidth -= 3
                     }
 
                 }
@@ -102,6 +101,7 @@
         }
         .el-dialog__body {
             padding: 0 !important;
+            font-size: 0;
         }
         .el-dialog {
             margin: 0 !important;
@@ -110,6 +110,9 @@
             top: 50%;
             transform: translate(-50%,-50%);
             width: fit-content;
+        }
+        .el-dialog__headerbtn{
+            font-size: 26px;
         }
     }
 

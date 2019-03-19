@@ -49,6 +49,7 @@
                     {text: 'js', name: 'js'},
                     {text: 'elementUI', name: 'elementUI'},
                     {text: 'previewImage', name: 'previewImage'},
+                    {text: 'vuex', name: 'vuex'},
                 ]
             }
         }

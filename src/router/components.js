@@ -44,6 +44,7 @@ import scrollSnap from "@/components/scrollSnap.vue";
 import js from "@/components/js.vue";
 import elementUI from "@/components/elementUI.vue";
 import previewImage from "@/components/previewImage.vue";
+import vuex from "@/components/vuex.vue";
 
 export default {
     index,
@@ -81,4 +82,5 @@ export default {
     js,
     elementUI,
     previewImage,
+    vuex,
 };
