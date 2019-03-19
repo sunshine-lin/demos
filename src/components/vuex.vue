@@ -2,7 +2,7 @@
 <template>
     <!--vuex组件用途
     props:
-    events: 
+    events:
     slots:
     use:
   -->
@@ -11,15 +11,19 @@
         <div>{{countPlusLocalState}}</div>
         <div>{{count1}}</div>
         <div>{{countGet}}</div>
+        <div>{{obj.age}}</div>
+        <div>store.state.a - {{$store.state.a.count}}</div>
+        <div>store.state.b - {{$store.state.b.count}}</div>
         <el-button @click="btnClick('add')">增加</el-button>
+        <el-button @click="btnClick('addAsync')">异步增加</el-button>
     </div>
 </template>
 
 <script>
-    import {mapState, mapGetters} from 'vuex'
+    import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
 
     export default {
-        name: 'vuex1',
+        name: 'vuex',
         props: {},
         components: {},
         data() {
@@ -31,13 +35,15 @@
             ...mapState({
                 count1: state => state.count,
                 countAlias: 'count',
+                obj: 'obj',
                 countPlusLocalState(state) {
                     return this.localCount
                 }
             }),
             ...mapGetters([
                 'countGet',
-            ])
+            ]),
+
         },
         watch: {},
         created() {
@@ -50,10 +56,20 @@
         deactivated() {
         },
         methods: {
+            ...mapMutations([
+                'increment',
+            ]),
+            ...mapActions([
+                'incrementAsync',
+            ]),
             btnClick(from) {
                 switch (from) {
                     case 'add':
-                        this.$store.commit('increment')
+                        this.increment({num: 200})
+                        break;
+                    case 'addAsync':
+//                        this.$store.dispatch('incrementAsync',{num: this.localCount++})
+                        this.incrementAsync({num: this.localCount++})
                         break;
                 }
             }
