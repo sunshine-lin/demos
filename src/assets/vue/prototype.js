@@ -601,20 +601,28 @@ Vue.prototype.urlConfig = {
     uploadUrl: "http://1o5f264182.iask.in"
 };
 // 判断真假 0 判断为真 其他不变 [] {} 空数组跟空对象为false
-Vue.prototype.truth = function (val) {
-    if (val) {
-        if (typeof(val) === 'object') {
-            if (JSON.stringify(val) === '[]' || JSON.stringify(val) === '{}') {
-                return false;
-            } else {
-                return true;
+Vue.prototype.truthy = function (val) {
+    var t = typeof (val),f = true;
+    switch (t) {
+        case 'undefined':
+            f = false;
+            break;
+        case 'string':
+            if (val === '') f = false;
+            break;
+        // case 'number':
+        //     if (val === 0) f = false;
+        //     break;
+        case 'boolean':
+            f = val;
+            break;
+        case 'object':
+            if (val === null) {
+                f = false;
+            } else if (JSON.stringify(val) === '[]' || JSON.stringify(val) === '{}'){
+                f = false;
             }
-        } else {
-            return true
-        }
-    } else if (val == 0) {
-        return true
-    } else {
-        return false;
+            break;
     }
+    return f;
 };

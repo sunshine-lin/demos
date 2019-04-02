@@ -235,18 +235,15 @@ const router = new Router({
     ]
 })
 router.beforeEach((to, from, next) => {
-    console.log('beforeEach to',to)
     next()
 })
 router.beforeResolve((to,from,next) => {
-    console.log('beforeResolve')
     next()
 })
 router.afterEach ((to,from)=> {
     Vue.nextTick(()=>{
         document.querySelector('title').innerHTML = to.meta.title;
     })
-    console.log('afterEach')
 })
 
 export default router

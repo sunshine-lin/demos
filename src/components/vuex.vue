@@ -52,6 +52,7 @@
 
         },
         activated() {
+            console.log(11111,this.truthy(0))
         },
         deactivated() {
         },
