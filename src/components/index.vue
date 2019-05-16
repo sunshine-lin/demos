@@ -50,6 +50,7 @@
                     {text: 'elementUI', name: 'elementUI'},
                     {text: 'previewImage', name: 'previewImage'},
                     {text: 'vuex', name: 'vuex'},
+                    {text: 'file', name: 'file'},
                 ]
             }
         }

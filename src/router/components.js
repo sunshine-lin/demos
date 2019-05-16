@@ -45,6 +45,7 @@ import js from "@/components/js.vue";
 import elementUI from "@/components/elementUI.vue";
 import previewImage from "@/components/previewImage.vue";
 import vuex from "@/components/vuex.vue";
+import file from "@/components/file.vue";
 
 export default {
     index,
@@ -83,4 +84,5 @@ export default {
     elementUI,
     previewImage,
     vuex,
+    file,
 };

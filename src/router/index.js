@@ -232,6 +232,12 @@ const router = new Router({
             meta: {requireAuth: false, title: "vuex"},
             component: components.vuex
         },
+        {
+            path: '/file',
+            name: 'file',
+            meta: {requireAuth: false, title: "file"},
+            component: components.file
+        },
     ]
 })
 router.beforeEach((to, from, next) => {
