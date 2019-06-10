@@ -26,6 +26,9 @@
         computed: {},
         watch: {},
         created() {
+            var flag = true;
+            flag && this.fun1();
+            console.log(33333)
         },
         mounted() {
             console.log(document.scrollingElement.scrollTop)
@@ -43,6 +46,9 @@
         deactivated() {
         },
         methods: {
+            fun1 () {
+                console.log('fun1')
+            },
             btnClick (from) {
                 switch (from) {
                     case 'toTop':

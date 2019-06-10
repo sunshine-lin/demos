@@ -1,6 +1,7 @@
 <!-- created by sunshine-lin in 2018.10.10 -->
 <template>
-  <div id="cssCom" class="comBox">
+  <div id="cssCom">
+    <div class="pageHeader">pageHeader</div>
     <img src="./images/meinv.jpg" alt="美女" class="filter"
     :style="`filter:${`${filterStyle.label}(${rangeValue?(rangeValue +'%') : filterStyle.value})`}`">
     <el-slider v-model="rangeValue"></el-slider>
@@ -38,6 +39,7 @@
     <div class="fit-content">
       1234
     </div>
+    <div class="pageFooter">pageFooter</div>
   </div>
 </template>
 
@@ -67,6 +69,15 @@
     },
     mounted() {
         this.setColor();
+      $(window).on('orientationchange',function (ev) {
+        if (window.orientation === 0) {
+          $('.pageHeader,.pageFooter').css({position: 'fixed'});
+          $('#cssCom').css({padding: '100px 0'})
+        } else {
+          $('.pageHeader,.pageFooter').css({position: 'static'});
+          $('#cssCom').css({padding:0})
+        }
+      })
     },
     activated() {
     },
@@ -96,6 +107,7 @@
 
 <style rel="stylesheet" lang="scss" scoped>
   #cssCom {
+    padding: 100px 0;
     .filter {
       /*filter: filter(5px);*/
       /*filter: brightness(0.4);*/
@@ -191,6 +203,23 @@
   /*}*/
   .fit-content{
     width: fit-content;
+    background: #f99;
+  }
+  .pageHeader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: #f99;
+  }
+
+  .pageFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
     background: #f99;
   }
 </style>
