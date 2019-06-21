@@ -42,6 +42,56 @@
 //            wavesurfer.load('//image.zhangxinxu.com/audio/zxx.mp3');
         },
         activated() {
+            var num = 1;
+            var arr = [5,1,3,6,2,4,111,22,9]
+            console.log('arr',arr)
+            console.log(arr.length >> 1)
+            // 冒泡排序
+            // for (let i = 0;i<arr.length;i++) {
+            //     for (let j = 0;j<arr.length - i - 1;j++) {
+            //         if (arr[i] > arr[j]) {
+            //             [arr[i],arr[j]] = [arr[j],arr[i]]
+            //         }
+            //     }
+            // }
+            // console.log('冒泡排序',arr)
+            // 选择排序
+            // for (let i = 0;i<arr.length;i++) {
+            //     let minIndex = 0;
+            //     for (let j = i + 1;j<arr.length;j++) {
+            //         if (arr[j] < arr[i]) {
+            //             minIndex = j
+            //         }
+            //     }
+            //     minIndex && ([arr[i],arr[minIndex]] = [arr[minIndex],arr[i]]);
+            // }
+            // console.log('选择排序',arr)
+            // 插入排序
+            // arr = [5,1,3]
+            // for (let i = 1;i<arr.length;i++) {
+            //     var cur = arr[i]
+            //     for (let j = i - 1;j >=0;j--) {
+            //         if (j - 1 >= 0) {
+            //             if (arr[i] < arr[j] && (arr[i] > arr[j-1])) {
+            //                 arr.splice(i,1)
+            //                 arr.splice(j,0,cur)
+            //                 // [arr[i],arr[j]] = [arr[j],arr[i]];
+            //             }
+            //         } else {
+            //             if (arr[i] < arr[j]) {
+            //                 arr.splice(i,1)
+            //                 arr.splice(j,0,cur)
+            //                 // [arr[i],arr[j]] = [arr[j],arr[i]]
+            //             }
+            //         }
+            //     }
+            //     console.log('arr',arr)
+            // }
+            // console.log('插入排序',arr)
+            // 快速排序
+            for (let i = 1;i<arr.length;i++) {
+
+            }
         },
         deactivated() {
         },
