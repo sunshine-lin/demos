@@ -238,6 +238,18 @@ const router = new Router({
             meta: {requireAuth: false, title: "file"},
             component: components.file
         },
+        {
+            path: '/debounce',
+            name: 'debounce',
+            meta: {requireAuth: false, title: "debounce"},
+            component: components.debounce
+        },
+        {
+            path: '/fabric',
+            name: 'fabric',
+            meta: {requireAuth: false, title: "fabric"},
+            component: components.fabric
+        },
     ]
 })
 router.beforeEach((to, from, next) => {

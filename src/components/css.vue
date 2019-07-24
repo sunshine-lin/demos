@@ -39,7 +39,17 @@
     <div class="fit-content">
       1234
     </div>
-    <div class="pageFooter">pageFooter</div>
+    <div class="yugutuBox">
+      <ul class="yugutu">
+        <li>111</li>
+        <li>2222</li>
+        <li>3333</li>
+      </ul>
+    </div>
+    小标题1
+     
+    <!-- <div class="pageFooter">pageFooter</div> -->
+     
   </div>
 </template>
 
@@ -221,5 +231,28 @@
     width: 100%;
     height: 100px;
     background: #f99;
+  }
+  .yugutuBox{
+    display: inline-block;
+    width: 200px;
+transform: rotate(-30deg);
+height: 200px;
+width: 200px;
+background: transparent;
+border-right:2px solid #000;
+&:after{
+  content: '小标题1'
+}
+  }
+  .yugutu li{
+    width: 100%;
+    text-align: right;
+    color: #000;
+    font-size: 20px;
+    transform: rotate(30deg) translate(-14px,-30px);
+    // background: #ddd;
+    line-height: 3em;
+    border-top: 1px solid #ddd;
+  
   }
 </style>

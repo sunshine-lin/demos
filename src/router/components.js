@@ -46,6 +46,8 @@ import elementUI from "@/components/elementUI.vue";
 import previewImage from "@/components/previewImage.vue";
 import vuex from "@/components/vuex.vue";
 import file from "@/components/file.vue";
+import debounce from "@/components/debounce.vue";
+import fabric from "@/components/fabric.vue";
 
 export default {
     index,
@@ -85,4 +87,6 @@ export default {
     previewImage,
     vuex,
     file,
+    debounce,
+    fabric,
 };

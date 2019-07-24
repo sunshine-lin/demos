@@ -35,7 +35,7 @@ Vue.prototype.isHasPre = function (...rest) {
     }
 };
 // 浏览器内核
-Vue.prototype.browserType = function (){
+Vue.prototype.browserType = function () {
     var ua = window.navigator.userAgent;
     if (/msie.*trident/ig.test(ua)) {
         return 'ie'
@@ -43,14 +43,14 @@ Vue.prototype.browserType = function (){
         return 'chrome'
     } else if (/gecko.*firefox/ig.test(ua)) {
         return 'firefox'
-    }  else if (/android/ig.test(ua)) {
+    } else if (/android/ig.test(ua)) {
         return 'android'
     } else {
         return 'unknown'
     }
 };
 // 手机系统类型
-Vue.prototype.phoneSystemType = function (){
+Vue.prototype.phoneSystemType = function () {
     var ua = window.navigator.userAgent;
     if (/android/ig.test(ua)) {
         return 'android'
@@ -153,21 +153,21 @@ Vue.prototype.datetimeFormat = function (date, format, separate) {
         var f = format || 'date';
         var s = separate || '-';
         var dString = new Date(date).toISOString();
-        var D = dString.slice(0, 10).replace(/-/g,s);
+        var D = dString.slice(0, 10).replace(/-/g, s);
         var T = dString.slice(11, 19);
         var str = '';
         switch (f) {
             case 'date':
-                str =  D;
+                str = D;
                 break;
             case 'time':
                 str = T;
                 break;
             case 'datetime':
-                str =  D + ' ' + T;
+                str = D + ' ' + T;
                 break;
             default:
-                str =  D;
+                str = D;
                 break;
         }
         return str;
@@ -602,7 +602,7 @@ Vue.prototype.urlConfig = {
 };
 // 判断真假 0 判断为真 其他不变 [] {} 空数组跟空对象为false
 Vue.prototype.truthy = function (val) {
-    var t = typeof (val),f = true;
+    var t = typeof (val), f = true;
     switch (t) {
         case 'undefined':
             f = false;
@@ -619,10 +619,30 @@ Vue.prototype.truthy = function (val) {
         case 'object':
             if (val === null) {
                 f = false;
-            } else if (JSON.stringify(val) === '[]' || JSON.stringify(val) === '{}'){
+            } else if (JSON.stringify(val) === '[]' || JSON.stringify(val) === '{}') {
                 f = false;
             }
             break;
     }
     return f;
+};
+// 防抖
+Vue.prototype.debounce = (fn, wait) => {
+    let timeout = null;
+    return function () {
+        (timeout !== null) && clearTimeout(timeout);
+        timeout = setTimeout(fn, wait);
+    }
+};
+// 节流
+Vue.prototype.throttle = (fn, wait) => {
+    let sw = true;
+    return function () {
+        if (!sw) return;
+        sw = false;
+        setTimeout(function () {
+            fn();
+            sw = true;
+        }, wait);
+    }
 };
