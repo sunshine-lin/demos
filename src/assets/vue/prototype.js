@@ -1,5 +1,5 @@
 /*
-*   created by Linzy in 2018.2.25
+*   Created by linzy on 2018.2.25
 * */
 import Vue from "vue";
 import qs from "querystring";

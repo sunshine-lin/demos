@@ -100,9 +100,9 @@
 
             // 颜色转换
             var color = new fabric.Color('#f55');
-            console.log(color.toHex())
-            console.log(color.toRgb())
-            console.log(color.toRgba())
+            // console.log(color.toHex())
+            // console.log(color.toRgb())
+            // console.log(color.toRgba())
 
             // 渐变
             var circle = new fabric.Circle({
@@ -149,19 +149,19 @@
             //     console.log(options.e.clientX, options.e.clientY);
             // });
             canvas.on('after:render',()=>{
-                console.log('after:render')
+                // console.log('after:render')
             })
             text.on('selected', function(options) {
-               console.log('selected',arguments)
+               // console.log('selected',arguments)
             }).on('moving', function(ev) {
                // console.log('moving',ev)
-               console.log('moving',ev.e.offsetX,ev.e.offsetY)
+               // console.log('moving',ev.e.offsetX,ev.e.offsetY)
             }).on('scaling', function(options) {
-               console.log('scaling',arguments)
+               // console.log('scaling',arguments)
             }).on('rotating', function(options) {
-               console.log('rotating',arguments)
+               // console.log('rotating',arguments)
             }).on('added', function(options) {
-               console.log('added')
+               // console.log('added')
             });
 
             // group 群组
@@ -196,9 +196,9 @@
                 scaleY: 2,
             })
             // 获取组对象
-            console.log(111111,group.getObjects())
-            console.log(canvas.toDataURL()) // 默认png格式
-            console.log('rect',rect.toJSON())
+            // console.log(111111,group.getObjects())
+            // console.log(canvas.toDataURL()) // 默认png格式
+            // console.log('rect',rect.toJSON())
             // toJSON
            /* angle: 0
             backgroundColor: ""     // 文字背景
@@ -234,7 +234,7 @@
             version: "3.3.0"
             visible: true
             width: 100*/
-            console.log('toSVG',rect.toSVG())
+            // console.log('toSVG',rect.toSVG())
 
             // 绘画
             var canvas2 = new fabric.Canvas('canvas2')
@@ -280,7 +280,6 @@
                 var str = 'M 0 200 ';
                 for (let i = num;i<80 + num;i+=0.1) {
                     var y = Math.sin(i)*5 + 100;
-                    console.log(y)
                     str += `L ${(i-num)*10} ${y} `
                 }
                 line2 = new fabric.Path(str + 'L 800 200 z')
@@ -301,6 +300,10 @@
                 canvas2.clear();
                 run(num)
             },10)
+            var count = 0;
+            do {
+                count += 1;
+            } while(count === 0)
         },
         activated() {
 
