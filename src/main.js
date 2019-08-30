@@ -8,7 +8,6 @@ import store from './store'
 // 引入css reset.css 重置原始样式 iconfont字体图标
 import '@/assets/css/reset.css'
 import '@/assets/css/common_pc.scss'
-
 // 引入element-ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -48,7 +47,7 @@ const options = {
 }
 
 // Vue.use(VueHtmlToPaper,options);
-
+import 'animate.css'
 import '@/assets/js/wavesurfer.min.js';
 
 new Vue({

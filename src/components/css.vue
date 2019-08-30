@@ -96,13 +96,29 @@
         <div class="fi-content">pdf</div>
       </div>
     </section>
-    <footer>footer</footer>
+    <footer>
+      footer
+      <span class="iconfont">&#xe602;</span>
+      <span class="iconfont icon-weixiuon"></span>
+
+      <svg
+        v-for="item in iconList"
+        :key="`svg-${item}`"
+        aria-hidden="true"
+        style="fill: #f00;width:100px;height:100px;"
+      >
+        <use :xlink:href="item" />
+      </svg>
+    </footer>
   </div>
 </template>
 
 <script>
-import _ from 'underscore'
+import _ from "underscore";
 import "css-file-icons/build/css-file-icons.css";
+import "@/assets/iconfont/Unicode.css";
+import "@/assets/iconfont/iconfont.css";
+import "@/assets/iconfont/iconfont.js";
 export default {
   name: "cssCom",
   data() {
@@ -121,18 +137,19 @@ export default {
         { label: "saturate", value: "30%" },
         { label: "sepia", value: "60%" }
       ],
-      num: -50
+      num: -50,
+      iconList: ["#icon-weixiuon", "#icon-weixiubeijing"]
     };
   },
   created() {},
   mounted() {
-    console.log(window.performance)
-    console.log('mounted',Date.now())
-    this.$nextTick(function () {
-      console.log('nextTick',Date.now())
-    })
-    var mountedS = Date.now()
-    console.log('domComplete',window.performance.timing.domComplete)
+    console.log(window.performance);
+    console.log("mounted", Date.now());
+    this.$nextTick(function() {
+      console.log("nextTick", Date.now());
+    });
+    var mountedS = Date.now();
+    console.log("domComplete", window.performance.timing.domComplete);
     // console.log('cha',window.performance.timing.domComplete - mountedS)
     this.setColor();
     $(window).on("orientationchange", function(ev) {
@@ -496,5 +513,12 @@ export default {
     flex: 1;
     background: orange;
   }
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 </style>

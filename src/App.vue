@@ -9,7 +9,13 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  provide: {
+    provideObj: {
+      name: 'p111',
+      age: '111'
+    }
+  },
 };
 </script>
 
