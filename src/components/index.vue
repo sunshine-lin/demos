@@ -50,6 +50,9 @@
                     {text: 'elementUI', name: 'elementUI'},
                     {text: 'previewImage', name: 'previewImage'},
                     {text: 'vuex', name: 'vuex'},
+                    {text: 'file', name: 'file'},
+                    {text: '防抖和节流', name: 'debounce'},
+                    {text: 'fabric', name: 'fabric'},
                 ]
             }
         }

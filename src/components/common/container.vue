@@ -6,43 +6,41 @@
     slots:
     use:
   -->
-  <label :id="id">
-      <slot name="label" v-bind:label="label">
-            <span class="label">账号--{{provideObj.name}} --{{provideObj.age}}</span>
-      </slot>
-    <input type="text" placeholder="请输入" :value="value" @input="input" @focus="focus" @change="change" />
-  </label>
+  <div class="container">
+      <slot name="header"></slot>
+    <g-input id="ccc" label="名称3" v-model="inputValue" v-on="$listeners" v-bind="$attrs" ref="gInput">
+        <template #:label="{label}">
+            <span style="color:#f00">{{label}}</span>
+        </template>
+    </g-input>
+  </div>
 </template>
 
 <script>
-
+import gInput from '@/components/common/gInput';
     export default {
         inheritAttrs: false,
-        name: 'gInput',
-        inject: ['provideObj'],
+        name: 'container',
         props: {
             value: '',
-            label: '',
-            aaa: '',
-            bbb: '',
-            name:'',
-            age: '',
-            id: ''
+            label: ''
         },
-        components: {},
+        components: {
+              gInput,
+        },
         data() {
             return {}
         },
         computed: {},
         watch: {},
         created() {
-          
         },
         mounted() {
+            console.log('this.$refs.gInput',this.$refs.gInput)
+            console.log('listeners',this.$listeners)
         },
         activated() {
-             console.log('$parent ',this.$parent.$attrs)
-             console.log('props2',this.$props)
+            console.log('attrs1',this.$attrs)
         },
         deactivated() {
         },
@@ -52,9 +50,6 @@
             },
             focus (ev) {
                 this.$emit('focus')
-            },
-            change (ev) {
-                this.$emit('change',ev.target.value)
             }
         }
     }
@@ -62,7 +57,9 @@
 
 <style rel="stylesheet" lang="scss">
 @import "../../assets/scss/main.scss";
-
-#gInput {
+.container{
+    border: 2px solid #ddd;
+    width: fit-content;
 }
+
 </style>
