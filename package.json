@@ -24,6 +24,7 @@
     "sass-loader": "^7.1.0",
     "sortablejs": "^1.9.0",
     "underscore": "^1.9.1",
+    "vconsole": "^3.3.4",
     "vue": "^2.6.8",
     "vue-happy-scroll": "^2.1.0",
     "vue-html-to-paper": "^1.0.3",

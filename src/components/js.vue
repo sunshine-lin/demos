@@ -101,6 +101,7 @@
     <li v-for="item in list" :key="item"
     class="li-item">{{item}}</li>
   </transition-group>
+  <list></list>
   </div>
 </template>
 
@@ -171,6 +172,7 @@ export default {
     });
   },
   activated() {
+    console.log('process',process.env.NODE_ENV)
     var num = 1;
     var arr = [5, 1, 3, 6, 2, 4, 111, 22, 9];
     console.log("arr", arr);
@@ -219,6 +221,7 @@ export default {
     // console.log('插入排序',arr)
     // 快速排序
     for (let i = 1; i < arr.length; i++) {}
+    console.log(this.$myMethod())
   },
   deactivated() {},
   methods: {
