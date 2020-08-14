@@ -10,7 +10,7 @@
       <slot name="label" v-bind:label="label">
             <span class="label">账号--{{provideObj.name}} --{{provideObj.age}}</span>
       </slot>
-    <input type="text" placeholder="请输入" :value="value" @input="input" @focus="focus" @change="change" />
+    <input :type="type" placeholder="请输入" :value="value" @input="input" @focus="focus" @change="change" />
   </label>
 </template>
 
@@ -27,7 +27,15 @@
             bbb: '',
             name:'',
             age: '',
-            id: ''
+            id: '',
+            type: {
+                type: String,
+                validator: function (value) {
+                    // 这个值必须匹配下列字符串中的一个
+                    return ['text', 'password'].indexOf(value) !== -1
+                },
+                default: 'text'
+            }
         },
         components: {},
         data() {

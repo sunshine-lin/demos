@@ -80,7 +80,10 @@
         <p>222</p>
         <p>333</p>
       </div>
-      <div class="h-v-center">
+      
+<el-button @click="jqueyAnimateClick">jquey动画</el-button>
+<audio ref="audio" src="static/source/12051.mp3"></audio>
+      <div class="h-v-center" @contextmenu.prevent="contextmenu">
         <div>水平垂直居中啊啊啊啊</div>
       </div>
       <div class="flex">
@@ -95,6 +98,9 @@
       <div class="fi fi-pdf">
         <div class="fi-content">pdf</div>
       </div>
+       <div class="parent" v-roll>
+      <div class="son">大发送到发到付阿道夫阿斯蒂芬阿斯蒂芬啊大发送到发到付阿道夫阿斯蒂芬阿斯蒂芬啊大发送到发到付阿道夫阿斯蒂芬阿斯蒂芬啊</div>
+    </div>
     </section>
     <footer>
       footer
@@ -110,11 +116,27 @@
         <use :xlink:href="item" />
       </svg>
     </footer>
+    <div class="dialogBox" ref="dialogBox">
+      dialogBox
+    </div>
+   <el-dialog ref="elDialog" :class="centerDialogVisible && 'dialogClass'"
+  title="提示"
+  :visible.sync="centerDialogVisible"
+  :modal="false"
+  append-to-body
+  width="30%">
+  <span>需要注意的是内容是默认不居中的</span>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="centerDialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
+  </span>
+</el-dialog>
   </div>
 </template>
 
 <script>
 import _ from "underscore";
+import $ from "jquery";
 import "css-file-icons/build/css-file-icons.css";
 import "@/assets/iconfont/Unicode.css";
 import "@/assets/iconfont/iconfont.css";
@@ -123,6 +145,8 @@ export default {
   name: "cssCom",
   data() {
     return {
+      centerDialogVisible: false,
+      dialogStyle: '',
       filterStyle: {},
       rangeValue: "",
       filterList: [
@@ -161,11 +185,45 @@ export default {
         $("#cssCom").css({ padding: 0 });
       }
     });
+    $('.dialogBox').bind({'mouseenter':function () {
+      console.log('mouseentermouseentermouseentermouseenter')
+    },'mouseleave': function () {
+      console.log('mouseleave')
+    }})
+   window.addEventListener('storage', function(e) {
+      console.log(e)
+    })
+    console.log(1111111111111,navigator)
+    console.log('getCurrentPosition',navigator.geolocation.getCurrentPosition())
   },
   activated() {},
   deactivated() {},
   watch: {},
   methods: {
+    jqueyAnimateClick () {
+      this.$refs.audio.play()
+      $('.h-v-center').delay(300).animate({width: '+=50px'},{duration: 1000}).queue(function (next) {
+        console.log('queue')
+        next()
+      }).delay(500).animate({height: '+=50px'})
+      sessionStorage.setItem('a',122)
+    },
+    contextmenu (ev) {
+      console.log(this.$refs.dialogBox)
+
+      // this.dialogStyle = `position:absolute;left:${ev.pageX}px;top:${ev.pageY}px`
+      // this.$refs.elDialog.style.position = `absolute;left:${ev.pageX}px;top:${ev.pageY}px`
+      // this.$refs.elDialog.style.left = `${ev.pageX}px`
+      // this.$refs.elDialog.style.top = `${ev.pageY}px`
+      // this.centerDialogVisible = true;
+      // this.$refs.dialogBox.style.display = 'block';
+      this.$refs.dialogBox.style.left =`${ev.pageX}px`
+      this.$refs.dialogBox.style.top = `${ev.pageY}px`
+      // $(this.$refs.dialogBox).fadeTo(1000,0.5,function () {
+      // })
+      $(this.$refs.dialogBox).fadeOut().fadeToggle().slideUp().slideToggle()
+      console.log(ev)
+    },
     selectChange(val) {
       console.log(val);
       if (val === "brightness") {
@@ -475,7 +533,9 @@ export default {
 .h-v-center {
   width: 200px;
   height: 200px;
-  background: orange;
+  // background: black;
+  background: hsla(0,50%,60%,1);
+  clip: rect(0 100px 0 100px);
   // display: flex;
   // div{
   //   margin: auto;
@@ -520,5 +580,36 @@ export default {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.parent {
+  display: inline-block;
+  border: 1px solid #ddd;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  .son{
+    display: inline-block;
+    // animation: roll 2s linear infinite;
+  }
+}
+@keyframes roll {
+  0% {
+    transform: translateX(100%)
+  }
+   100% {
+    transform: translateX(-100%)
+  }
+}
+.dialogClass .el-dialog{
+  margin-top: 0 !important;
+  position: absolute;
+}
+.dialogBox{
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 1px solid #ddd;
+  position: absolute;
+  display: none;
 }
 </style>

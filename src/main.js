@@ -22,7 +22,7 @@ Vue.use(HappyScroll)
 // 引入配置 全局配置 公共组件 自定义过滤器 自定义命令 全局方法
 import '@/assets/vue/axios.js'
 import '@/assets/vue/config.js'
-// import '@/assets/vue/globalComonents.js'
+import '@/assets/vue/globalComponents.js'
 import '@/assets/vue/filters.js'
 import '@/assets/vue/directives.js'
 import '@/assets/vue/prototype.js'
@@ -56,6 +56,14 @@ import vConsole from 'vconsole';
 if (process.env.NODE_ENV === 'development') {
   new vConsole()
 }
+import VueQuillEditor from 'vue-quill-editor'
+
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+Vue.use(VueQuillEditor, /* { default global options } */)
 new Vue({
   el: '#app',
   router,

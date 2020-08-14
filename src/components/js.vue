@@ -27,6 +27,7 @@
       v-bind="user"
       aaa="aaaa"
       bbb="bbbb"
+      type="password"
     >
       <template v-slot:header>Header content1112222</template>
       <template v-slot:label2>4444</template>
@@ -102,6 +103,7 @@
     class="li-item">{{item}}</li>
   </transition-group>
   <list></list>
+  <g-input aaa.prop="aaaa"></g-input>
   </div>
 </template>
 
