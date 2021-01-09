@@ -82,13 +82,13 @@
         mounted() {
             $('.el-table__header-wrapper tr th').attr('draggable',true)
             $('.el-table__header-wrapper tr th').on('dragstart',(ev)=>{
-                console.log(ev.target)
+                // console.log(ev.target)
             })
             $('.el-table__header-wrapper tr th').on('dragover',(ev)=>{
                 ev.preventDefault()
             })
             $('.el-table__header-wrapper tr th').on('drop',(ev)=>{
-                console.log(ev.target)
+                // console.log(ev.target)
             })
 //            $('.el-table__header-wrapper').on('mouseup', (ev) => {
 //                setTimeout(() => {
@@ -144,14 +144,14 @@
             },
             // 当拖动表头改变了列的宽度的时候会触发该事件	newWidth, oldWidth, column, event
             headerDragend (newWidth, oldWidth, column, event) {
-                console.log('newWidth, oldWidth, column, event',newWidth, oldWidth, column, event)
+                // console.log('newWidth, oldWidth, column, event',newWidth, oldWidth, column, event)
 
                 this.optionList.map(item =>{
                     if (item.value === column.property) {
                         return item.width = newWidth
                     }
                 })
-                console.log('this.optionList',this.optionList)
+                // console.log('this.optionList',this.optionList)
             }
         }
     }

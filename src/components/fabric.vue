@@ -73,7 +73,7 @@
             // set  + get
             // rect.set({strokeWidth: 5, stroke: 'rgba（100,200,200,0.5）', fill: '#f99'})
             // rect.set({scaleX: 2, scaleY: 3, angle: 30, flipX: 500});
-            // console.log(rect.get('width'))
+            // // console.log(rect.get('width'))
             // setTimeout(() => {
             //     rect.set({left: 200, top: 300})
             //     canvas.renderAll(); // 需要重画
@@ -100,9 +100,9 @@
 
             // 颜色转换
             var color = new fabric.Color('#f55');
-            // console.log(color.toHex())
-            // console.log(color.toRgb())
-            // console.log(color.toRgba())
+            // // console.log(color.toHex())
+            // // console.log(color.toRgb())
+            // // console.log(color.toRgba())
 
             // 渐变
             var circle = new fabric.Circle({
@@ -146,22 +146,22 @@
 
             // 事件
             // canvas.on('mouse:down', function(options) {
-            //     console.log(options.e.clientX, options.e.clientY);
+            //     // console.log(options.e.clientX, options.e.clientY);
             // });
             canvas.on('after:render',()=>{
-                // console.log('after:render')
+                // // console.log('after:render')
             })
             text.on('selected', function(options) {
-               // console.log('selected',arguments)
+               // // console.log('selected',arguments)
             }).on('moving', function(ev) {
-               // console.log('moving',ev)
-               // console.log('moving',ev.e.offsetX,ev.e.offsetY)
+               // // console.log('moving',ev)
+               // // console.log('moving',ev.e.offsetX,ev.e.offsetY)
             }).on('scaling', function(options) {
-               // console.log('scaling',arguments)
+               // // console.log('scaling',arguments)
             }).on('rotating', function(options) {
-               // console.log('rotating',arguments)
+               // // console.log('rotating',arguments)
             }).on('added', function(options) {
-               // console.log('added')
+               // // console.log('added')
             });
 
             // group 群组
@@ -196,9 +196,9 @@
                 scaleY: 2,
             })
             // 获取组对象
-            // console.log(111111,group.getObjects())
-            // console.log(canvas.toDataURL()) // 默认png格式
-            // console.log('rect',rect.toJSON())
+            // // console.log(111111,group.getObjects())
+            // // console.log(canvas.toDataURL()) // 默认png格式
+            // // console.log('rect',rect.toJSON())
             // toJSON
            /* angle: 0
             backgroundColor: ""     // 文字背景
@@ -234,7 +234,7 @@
             version: "3.3.0"
             visible: true
             width: 100*/
-            // console.log('toSVG',rect.toSVG())
+            // // console.log('toSVG',rect.toSVG())
 
             // 绘画
             var canvas2 = new fabric.Canvas('canvas2')

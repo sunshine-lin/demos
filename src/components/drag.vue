@@ -25,7 +25,7 @@
             $('.item').on('dragstart',(ev)=>{
                 ev.originalEvent.dataTransfer.setData('ele',ev.target.dataset.index)
 //                ev.originalEvent.dataTransfer.ele = ev.target;
-                console.log(1111,ev.originalEvent.dataTransfer.getData('ele'))
+                // console.log(1111,ev.originalEvent.dataTransfer.getData('ele'))
             })
             $('.item').on('dragover',(ev)=>{
                 ev.preventDefault()
@@ -35,7 +35,7 @@
                 var newIndex = ev.target.dataset.index;
                 [this.arr[oldIndex],this.arr[newIndex]] = [this.arr[newIndex],this.arr[oldIndex]];
                 this.$forceUpdate()
-//                console.log(4444,ev.originalEvent.dataTransfer.getData('ele'))
+//                // console.log(4444,ev.originalEvent.dataTransfer.getData('ele'))
 //                $(ev.originalEvent.dataTransfer.getData('ele')).remove()
 //                $(ev.target).insertBefore(ev.originalEvent.dataTransfer.getData('ele'))
             })

@@ -49,8 +49,8 @@
         mounted() {
         },
         activated() {
-             console.log('$parent ',this.$parent.$attrs)
-             console.log('props2',this.$props)
+             // console.log('$parent ',this.$parent.$attrs)
+             // console.log('props2',this.$props)
         },
         deactivated() {
         },

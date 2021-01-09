@@ -32,7 +32,7 @@ export default {
     watch: {},
     methods: {
         setBar() {
-          console.log('window.devicePixelRatio',window.devicePixelRatio)
+          // console.log('window.devicePixelRatio',window.devicePixelRatio)
             // 基于准备好的dom，初始化echarts实例
             var myChart = echarts.init(document.getElementById('barBox'),{
               devicePixelRatio: 1

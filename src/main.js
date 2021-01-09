@@ -27,7 +27,7 @@ import '@/assets/vue/filters.js'
 import '@/assets/vue/directives.js'
 import '@/assets/vue/prototype.js'
 import '@/assets/vue/polyfill.js'
-import '@/assets/vue/mixins.js'
+// import '@/assets/vue/mixins.js'
 import globalData from '@/assets/vue/globalData.js'
 import MyPlugin from '@/assets/plugins/MyPlugin'
 Vue.use(MyPlugin)
@@ -52,10 +52,10 @@ const options = {
 // Vue.use(VueHtmlToPaper,options);
 import 'animate.css'
 import '@/assets/js/wavesurfer.min.js';
-import vConsole from 'vconsole'; 
-if (process.env.NODE_ENV === 'development') {
-  new vConsole()
-}
+// import vConsole from 'vconsole'; 
+// if (process.env.NODE_ENV === 'development') {
+//   new vConsole()
+// }
 import VueQuillEditor from 'vue-quill-editor'
 
 // require styles

@@ -43,7 +43,7 @@
           let html = document.getElementsByTagName('html')[0];
           // 获取 --color CSS 变量值
           var cssVarColor = getComputedStyle(html).getPropertyValue('--color');
-          console.log(cssVarColor);
+          // console.log(cssVarColor);
           $.smartScroll = function(container, selectorScrollable) {
             // 如果没有滚动容器选择器，或者已经绑定了滚动时间，忽略
             if (!selectorScrollable || container.data('isBindScroll')) {

@@ -22,7 +22,7 @@
             function step(timestamp = new Date().getTime()) {
                 if (!start) start = timestamp;
                 var progress = timestamp - start;
-                console.log(progress)
+                // console.log(progress)
                 element.style.left = Math.min(progress / 10, 400) + 'px';
                 if (progress < 4000) {
                     window.requestAnimationFrame(step);

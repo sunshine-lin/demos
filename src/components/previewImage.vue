@@ -75,7 +75,7 @@
             btnClick(from, row) {
                 switch (from) {
                     case 'previewImage':
-                        console.log(row)
+                        // console.log(row)
                         this.previewImageVisible = true;
                         this.imgSrc = row.target.currentSrc;
                         break;

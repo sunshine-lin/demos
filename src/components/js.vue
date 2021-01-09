@@ -15,7 +15,7 @@
     <div :title="str">{{str2}}</div>
     <div id="list">
       <div id="aaa">aaa</div>
-      <ul id="bbb">
+      <ul id="bbb" @click="weituoClick">
         <li>01</li>
         <li>02</li>
         <li>03</li>
@@ -47,8 +47,8 @@
     <!-- <template v-for="(item,index) of list">
           <div :key="index" @click="itemClick(item,$event)">{{item}}</div>
     </template>-->
-    <ul style="height: 200px;overflow: auto;" @scroll="scroll">
-      <li v-for="(item,index) of 100" :key="index" @click="itemClick(item)">{{item}}</li>
+    <ul style="height: 200px;overflow: auto;" @scroll="scroll"  @click="itemClick">
+      <li v-for="(item,index) of 100" :key="index">{{item}}</li>
     </ul>
     <div @click.self="$alert('123','3333')">
       out
@@ -142,19 +142,19 @@ export default {
   created() {
     var flag = true;
     flag && this.fun1();
-    console.log(33333);
-    console.log(_)
+    // // console.log(33333);
+    // // console.log(_)
   },
   mounted() {
     var a = "333";
-    console.log(a instanceof String);
-    console.log(typeof a);
-    console.log(a.slice(1));
+    // // console.log(a instanceof String);
+    // // console.log(typeof a);
+    // // console.log(a.slice(1));
     this.str2 = this.str.slice(0, 10) + "..." + this.str.slice(-5);
-    console.log(document.scrollingElement.scrollTop);
+    // // console.log(document.scrollingElement.scrollTop);
     var encodeData = btoa(123456);
     var decodeData = atob(encodeData);
-    console.log(decodeData);
+    // // console.log(decodeData);
 
     //            var wavesurfer = WaveSurfer.create({
     //                container: '#waveform'
@@ -162,7 +162,7 @@ export default {
     //            wavesurfer.load('//image.zhangxinxu.com/audio/zxx.mp3');
     var paramsString = "q=URLUtils.searchParams&topic=api&topic=api"; // location.search.slice(1)
     var searchParams = new URLSearchParams(paramsString);
-    console.log("searchParams", searchParams.getAll("topic"));
+    // // console.log("searchParams", searchParams.getAll("topic"));
     $("#list").on("mouseenter", () => {
       var timer = setTimeout(function() {
         $("#bbb").show();
@@ -174,11 +174,43 @@ export default {
     });
   },
   activated() {
-    console.log('process',process.env.NODE_ENV)
+    // 实现 深拷贝
+    var obj = {name: 'zhangsan',age: 11,like: {book: '红楼梦'}}
+    // function deepClone (o,newObj) {
+    //   debugger
+    //   for (var k in o) {
+    //     if (typeof o[k] !== 'object') {
+    //       newObj[k] = o[k]
+    //     } else {
+    //       var newObj2 = {};
+    //       newObj[k] = newObj2;
+    //       deepClone(o[k],newObj2)
+    //     }
+    //   }
+    //   return newObj
+    // }
+    var obj3 = this.deepClone(obj,{})
+    obj.like.book = "西游记"
+    console.log('obj3',obj3)
+    // 函数柯里化 实现单参数传参，逐层嵌套
+    var fn1 = function (a,b) {
+      return a +b
+    }
+    var curry  = function (fn) {
+      return function (x) {
+        return function (y) {
+          return fn(x,y)
+        }
+      }
+    }
+    var curryFun = curry(fn1)
+    
+    console.log(curryFun(1)(5))
+    // // console.log('process',process.env.NODE_ENV)
     var num = 1;
     var arr = [5, 1, 3, 6, 2, 4, 111, 22, 9];
-    console.log("arr", arr);
-    console.log(arr.length >> 1);
+    // // console.log("arr", arr);
+    // // console.log(arr.length >> 1);
     // 冒泡排序
     // for (let i = 0;i<arr.length;i++) {
     //     for (let j = 0;j<arr.length - i - 1;j++) {
@@ -187,7 +219,7 @@ export default {
     //         }
     //     }
     // }
-    // console.log('冒泡排序',arr)
+    // // // console.log('冒泡排序',arr)
     // 选择排序
     // for (let i = 0;i<arr.length;i++) {
     //     let minIndex = 0;
@@ -198,7 +230,7 @@ export default {
     //     }
     //     minIndex && ([arr[i],arr[minIndex]] = [arr[minIndex],arr[i]]);
     // }
-    // console.log('选择排序',arr)
+    // // // console.log('选择排序',arr)
     // 插入排序
     // arr = [5,1,3]
     // for (let i = 1;i<arr.length;i++) {
@@ -218,36 +250,46 @@ export default {
     //             }
     //         }
     //     }
-    //     console.log('arr',arr)
+    //     // // console.log('arr',arr)
     // }
-    // console.log('插入排序',arr)
+    // // // console.log('插入排序',arr)
     // 快速排序
     for (let i = 1; i < arr.length; i++) {}
-    console.log(this.$myMethod())
+    // // console.log(this.$myMethod())
   },
   deactivated() {},
   methods: {
+    sum (n) {
+      return function (n) {
+        return n
+      }
+    },
+    weituoClick() {
+      // // console.log(arguments)
+    },
     scroll() {
-      console.log("sssss");
+      // // console.log("sssss");
     },
     inClick() {
       alert(111);
     },
     ulClick(ev) {
-      console.log("ulClick", ev);
+      // // console.log("ulClick", ev);
     },
-    itemClick(item, ev) {
-      console.log(item, ev);
+    itemClick(ev) {
+      // // console.log('ev',ev.target.innerText)
+      // console.log('ev',ev)
+      // // // console.log('ev',ev.target.innerText)
     },
     containerFocus() {
-      console.log("containerFocus");
+      // // console.log("containerFocus");
     },
     containerChange(val) {
       this.inputValue = val;
-      console.log("containerChange", val);
+      // // console.log("containerChange", val);
     },
     fun1() {
-      console.log("fun1");
+      // // console.log("fun1");
     },
      randomIndex: function () {
       return Math.floor(Math.random() * this.items.length)
@@ -266,12 +308,12 @@ export default {
           document.scrollingElement.scrollTop = 0;
           break;
         case "provideChange":
-          console.log(this.$root);
+          // // console.log(this.$root);
           // this.$root.$provide.provideObj.age++
           break;
         case "Notification":
           Notification.requestPermission().then(function(res) {
-            console.log(res);
+            // // console.log(res);
             if (res !== "granted") return;
 
             var notice = new Notification("这是一个通知", {
@@ -289,7 +331,7 @@ export default {
               notice.close();
             }, 2000);
             notice.onclick = function() {
-              console.log("点击了通知:" + notice.data);
+              // // console.log("点击了通知:" + notice.data);
               notice.close();
             };
             // result可能是是granted, denied, 或default.
@@ -308,12 +350,12 @@ export default {
     },
     afterEnter: function(el) {
        this.btnDisabled = false;
-      console.log('afterEnter')
+      // // console.log('afterEnter')
       // ...
     },
     enterCancelled: function(el) {
       // ...
-       console.log('enterCancelled')
+       // // console.log('enterCancelled')
     },
 
     // --------
@@ -331,12 +373,12 @@ export default {
     },
     afterLeave: function(el) {
       this.btnDisabled = false;
-       console.log('afterLeave')
+       // // console.log('afterLeave')
       // ...
     },
     // leaveCancelled 只用于 v-show 中
     leaveCancelled: function(el) {
-       console.log('leaveCancelled')
+       // // console.log('leaveCancelled')
       // ...
     }
   }

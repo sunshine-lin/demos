@@ -267,7 +267,7 @@
                 ctx.textBaseline = "alphabetic";
                 ctx.direction = "rtl";
                 var text = ctx.measureText("Hello world"); // TextMetrics object
-                console.log(text.width)
+                // console.log(text.width)
                 ctx.fillStyle = '#f00';
                 ctx.fillText("Hello world", 10, 50, text.width);
                 ctx.textBaseline = "top";
@@ -411,9 +411,9 @@
                     var tutorial2 = document.querySelector('#tutorial2');
                     var ctx2 = tutorial2.getContext('2d');
                     ctx2.putImageData(imageData, 0, 0);
-                    console.log('imageData',imageData)
+                    // console.log('imageData',imageData)
                     var newImage = tutorial2.toDataURL('image/png');
-                    console.log('newImage',newImage)
+                    // console.log('newImage',newImage)
                 };
             },
         }

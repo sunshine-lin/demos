@@ -182,7 +182,7 @@ Vue.prototype.trunTransferData = function (arr, id, name) {
     let tempArr = [];
     let length = arr.length;
     for (let i = 0; i < length; i++) {
-        tempArr.push({key: arr[i][id], label: arr[i][name], disabled: false});
+        tempArr.push({ key: arr[i][id], label: arr[i][name], disabled: false });
     }
     return tempArr;
 };
@@ -190,7 +190,7 @@ Vue.prototype.trunTransferData = function (arr, id, name) {
 Vue.prototype.reLogin = function () {
     localStorage.removeItem("userData");
     localStorage.removeItem("loginName");
-    this.$router.replace({name: "login"});
+    this.$router.replace({ name: "login" });
     // axios.post("/outlogin");
 };
 
@@ -385,7 +385,7 @@ Vue.prototype.getMapPoint = function (address, city) {
     });
 };
 //在表头上添加tooltip
-Vue.prototype.appendTip = function (createElement, {column}) {
+Vue.prototype.appendTip = function (createElement, { column }) {
     return createElement(
         "el-tooltip",
         {
@@ -501,9 +501,9 @@ Vue.prototype.getExtraArr = function (allCustomList) {
 *   pre           自定义列表的前缀
 * */
 Vue.prototype.getExtraObj = function (allCustomList,
-                                      tableForm,
-                                      pre = "extra",
-                                      from = "device") {
+    tableForm,
+    pre = "extra",
+    from = "device") {
     let nameArr = this.getExtraArr(allCustomList);
     let tempObj = {},
         i = 0;
@@ -627,22 +627,40 @@ Vue.prototype.truthy = function (val) {
     return f;
 };
 // 防抖
-Vue.prototype.debounce = (fn, wait) => {
-    let timeout = null;
+Vue.prototype.debounce = function (fn, delay) {
+    var timer = null;
     return function () {
-        (timeout !== null) && clearTimeout(timeout);
-        timeout = setTimeout(fn, wait);
+        var that = this;
+        timer && clearTimeout(timer);
+        timer = setTimeout(function () {
+            fn.apply(that, arguments)
+            timer = null;
+        }, delay);
     }
 };
 // 节流
-Vue.prototype.throttle = (fn, wait) => {
-    let sw = true;
+Vue.prototype.throttle = function (fn, delay) {
+    var timer = null;
     return function () {
-        if (!sw) return;
-        sw = false;
-        setTimeout(function () {
-            fn();
-            sw = true;
-        }, wait);
+        var that = this;
+        if (!timer) {
+            timer = setTimeout(function () {
+                fn.apply(that, arguments)
+                timer = null;
+            }, delay)
+        }
     }
+};
+// 手写深拷贝
+Vue.prototype.deepClone = function (oldObj, newObj) {
+    for (var k in oldObj) {
+        if (typeof oldObj[k] !== 'object') {
+            newObj[k] = oldObj[k]
+        } else {
+            var tempObj = {};
+            newObj[k] = tempObj;
+            this.deepClone(oldObj[k], tempObj)
+        }
+    }
+    return newObj
 };

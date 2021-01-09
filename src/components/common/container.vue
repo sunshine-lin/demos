@@ -36,11 +36,11 @@ import gInput from '@/components/common/gInput';
         created() {
         },
         mounted() {
-            console.log('this.$refs.gInput',this.$refs.gInput)
-            console.log('listeners',this.$listeners)
+            // console.log('this.$refs.gInput',this.$refs.gInput)
+            // console.log('listeners',this.$listeners)
         },
         activated() {
-            console.log('attrs1',this.$attrs)
+            // console.log('attrs1',this.$attrs)
         },
         deactivated() {
         },

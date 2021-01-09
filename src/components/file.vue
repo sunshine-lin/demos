@@ -38,7 +38,7 @@
         mounted() {
             var _this = this;
             $('#file1').on('change', function (ev) {
-                console.log(ev.target.files,typeof(ev.target.files) )
+                // console.log(ev.target.files,typeof(ev.target.files) )
                 var arr = [];
                 var files = ev.target.files
                 for (let i = 0;i<files.length;i++) {
@@ -46,26 +46,26 @@
                     reader.readAsDataURL(files[i]); //读取为base64
                     //以下代码可以删除
                     reader.onloadstart = function(){
-                        console.log('start');  //开始读取
+                        // console.log('start');  //开始读取
                     };
                     reader.onprogress = function(e){
                         //这个是定时触发的事件，文件较大的时候较明显
                         // var p = '已完成：' + Math.round(e.loaded / e.total * 100) + '%' ;
                         // $(".file_upload").find(".progress").html(p);
-                        console.log('uploading');  //文件较大，就会出现多个uploading
+                        // console.log('uploading');  //文件较大，就会出现多个uploading
                     };
                     reader.onabort = function(){
-                        console.log('abort'); //用作取消上传功能
+                        // console.log('abort'); //用作取消上传功能
                     };
                     reader.onerror = function(){
-                        console.log('error'); //文件读取出错的时候触发，暂模拟不出
+                        // console.log('error'); //文件读取出错的时候触发，暂模拟不出
                     };
                     reader.onload = function(){
-                        console.log('load complete'); //完成
+                        // console.log('load complete'); //完成
                     };
                     reader.onloadend = function (e) {
                         var dataURL = reader.result;
-                        console.log('dataURL',dataURL)
+                        // console.log('dataURL',dataURL)
                     };
                     var item = files[i];
                     var URL = window.URL || window.webkitURL;
@@ -84,8 +84,8 @@
             btnClick () {
                 var ele = $('#upload')[0]
                 var formData = new FormData(ele);
-                console.log('formData',formData)
-                console.log(formData.get("file1"))
+                // console.log('formData',formData)
+                // console.log(formData.get("file1"))
             }
         }
     }

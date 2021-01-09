@@ -42,7 +42,7 @@
         },
         mounted() {
             this.browserType()
-//                console.log(this.browserType())
+//                // console.log(this.browserType())
 //            function* gen2() {
 //                yield 1;
 //                yield 2;
@@ -50,16 +50,16 @@
 //            }
 //
 //            let g = gen2();
-//            console.log(g.next());
-//            console.log(g.next());
-//            console.log(g.next());
+//            // console.log(g.next());
+//            // console.log(g.next());
+//            // console.log(g.next());
 
 //            this.emailjs = require("emailjs/email.js");
 //            var nodemailer = require("nodemailer");
 //            var dns = require("dns");
-//            console.log('dns', dns)
-//            console.log('emailjs', emailjs)
-//            console.log('nodemailer', nodemailer)
+//            // console.log('dns', dns)
+//            // console.log('emailjs', emailjs)
+//            // console.log('nodemailer', nodemailer)
 //            this.emailjs.server.connect({
 //                user: "18072887831@163.com",
 //                password: "sqm123456",
@@ -73,7 +73,7 @@
 //                ssl:     true                   // 使用ssl
 //            });
 //            const dns = require('dns');
-//            console.log('dns',dns)
+//            // console.log('dns',dns)
         },
         activated() {
         },
@@ -98,18 +98,18 @@
                         break;
                     case 'reduce':
                         var sum = this.arr.reduce((sum,cur,index,arr)=>{
-                            console.log('index',index)
+                            // console.log('index',index)
                             return sum + cur
                         })
-                        console.log('sum',sum);
+                        // console.log('sum',sum);
                         break;
                     case 'generator':
                         var num = this.genRes.next().value;
                         if (num == 10) {
                             this.genRes.throw()
-                            console.log(this.genRes.return())
+                            // console.log(this.genRes.return())
                         }
-                        console.log(num)
+                        // console.log(num)
                         break;
                 }
             },
@@ -136,7 +136,7 @@
 
 // "Generator { }"
 //                var emailjs = require("emailjs");
-//                console.log('emailjs', emailjs);
+//                // console.log('emailjs', emailjs);
 //                var server = emailjs.server.connect({
 //                    user: "18072887831@163.com",
 //                    password: "sqm123456",
@@ -152,7 +152,7 @@
 //                    subject: "邮件主题1"          //邮件主题
 //                }, function (err, message) {
 //                    //回调函数
-//                    console.log(err || message);
+//                    // console.log(err || message);
 //                });
 
             }

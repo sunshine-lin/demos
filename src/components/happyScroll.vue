@@ -64,16 +64,16 @@
     },
     methods: {
       verticalStart (ev) {
-        console.log(ev)
+        // console.log(ev)
       },
       verticalEnd (ev) {
-        console.log(ev)
+        // console.log(ev)
       },
       horizontalStart (ev) {
-        console.log(ev)
+        // console.log(ev)
       },
       horizontalEnd (ev) {
-        console.log(ev)
+        // console.log(ev)
       },
     }
   }

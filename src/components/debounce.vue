@@ -7,7 +7,7 @@
     use:
   -->
     <div id="debounce" class="comBox">
-        debounce
+        <input type="text" id="input" placeholder="请输入">
     </div>
 </template>
 
@@ -17,7 +17,9 @@
         props: {},
         components: {},
         data() {
-            return {}
+            return {
+                timer: null
+            }
         },
         computed: {},
         watch: {},
@@ -25,36 +27,57 @@
         },
         mounted() {
             var _this = this;
-            // $(window).on('resize',_this.debounce(_this.log,1000))
             // $(window).on('resize',_this.delay(_this.log,1000))
-            // $(window).on('mousewheel',_this.debounce(_this.log,1000))
             $(window).on('mousewheel',_this.delay(_this.log,1000))
+            // $('#input').on('input',_this.debounce(function () {
+            //     // console.log($(this).val())
+            // },500))
+            $('#input').on('input',_this.throttle(function () {
+                // console.log($(this).val())
+            },1000))
         },
         activated() {
         },
         deactivated() {
         },
         methods: {
-            log () {
-                console.log(222)
+            debounce2 (ev) {
+                // console.log('ev',ev.target.value)
+                // console.log(this.debounce)
+                this.debounce(function (ev) {
+                    // console.log(ev.target.value)
+                },500)
             },
-            debounce (fn,wait) {
-                let timeout = null;
+            log (ev) {
+                // console.log($(ev).val())
+            },
+            // debounce (fn,wait) {
+            //     var timeout = null;
+            //     return function () {
+            //         var that = this;
+            //         timeout && clearTimeout(timeout);
+            //         timeout = setTimeout(function () {
+            //             fn.apply(that,arguments)
+            //         },wait);
+            //     }
+            // },
+            delay (fn,delay) {
+                var timeout = null;
                 return function () {
-                    (timeout !== null) && clearTimeout(timeout);
-                    timeout = setTimeout(fn,wait);
+                    var that = this;
+                    if (!timeout) {
+                         fn.apply(that,arguments)
+                         timeout = setTimeout(function () {
+                             timeout = null;
+                         },delay)
+                    }
+                    
                 }
             },
-            delay (fn,wait) {
-                let sw = true;
-                return function () {
-                    if(!sw) return;
-                    sw = false;
-                    setTimeout(function () {
-                        fn();
-                        sw = true;
-                    },wait);
-                }
+            inputChange (ev) {
+                this.debounce(function () {
+                    // console.log(ev.target.value)
+                },500)
             }
         }
     }

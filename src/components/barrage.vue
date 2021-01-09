@@ -29,7 +29,7 @@
       // $('#htmlEle').attr('for','123')
       for (let i = 0;i<5;i++) {
         setTimeout(() => {
-          console.log(i)
+          // console.log(i)
         },500)
       }
       {
@@ -38,17 +38,17 @@
       {
         var k = 2;
       }
-      console.log('k',k)
+      // console.log('k',k)
      
     },
     activated() {
       const PI = 3.14;
       // PI = 3.15
-      console.log('PI',PI)
-     console.log(/\d+?a/.test('123a'))
+      // console.log('PI',PI)
+     // console.log(/\d+?a/.test('123a'))
       // var arr = [(x*x) for(x in [1,2,3,4]){return x%2 === 0}]
       var  arr = [1,3,2,6,4]
-      console.log(arr.sort((x,y)=>y-x))
+      // console.log(arr.sort((x,y)=>y-x))
     },
     deactivated() {
     },

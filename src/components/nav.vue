@@ -94,7 +94,7 @@
         },
         activated() {
 //          $('#navCom').on('scroll',(ev)=>{
-//            console.log($('#navCom .el-menu').position().top)
+//            // console.log($('#navCom .el-menu').position().top)
 //            this.scrolltop = ev.target.scrollTop;
 //          })
         },
@@ -113,7 +113,7 @@
         },
         methods: {
           handleSelect(key, keyPath) {
-            console.log(key, keyPath);
+            // console.log(key, keyPath);
           }
         }
     }

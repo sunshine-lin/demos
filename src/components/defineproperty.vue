@@ -58,12 +58,12 @@
 //            var obj2 = Object.freeze(obj);
 //            obj2.name = 'zhangsan11';
 //            obj.name = 'zhangsan11';
-//            console.log('obj',obj)
-//            console.log('obj2',obj2)
+//            // console.log('obj',obj)
+//            // console.log('obj2',obj2)
             var obj3 = {name: '12345'}
-            console.log('Object.entries()',Object.entries(obj3))
+            // console.log('Object.entries()',Object.entries(obj3))
             var map3 = new Map(Object.entries(obj3));
-            console.log('map3',map3)
+            // console.log('map3',map3)
         },
         activated() {
         },

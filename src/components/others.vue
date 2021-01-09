@@ -163,10 +163,10 @@ export default {
         async function a1(x) {
             if (x == 5) {
                 return await setTimeout(() => {
-                    //                        console.log(111)
+                    //                        // console.log(111)
                 }, 2000);
             } else {
-                //                    await console.log(222)
+                //                    await // console.log(222)
             }
         }
 
@@ -287,7 +287,7 @@ export default {
             }
             var arr = num.toString().split('');
             // var arr = num.split('');
-            console.log('11111111111111', arr)
+            // console.log('11111111111111', arr)
             var length = arr.length;
             var str = '';
             // ["1", "2", "3"]
@@ -297,7 +297,7 @@ export default {
               }
                
             })
-            console.log(22222222222, str)
+            // console.log(22222222222, str)
             return str
         },
     }

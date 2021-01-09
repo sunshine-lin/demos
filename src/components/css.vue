@@ -131,6 +131,10 @@
     <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
   </span>
 </el-dialog>
+<div>波纹动画</div>
+  <div class="waveBox" @click="btnClick('waveBox')">
+    <div class="waveSubBox"></div>
+  </div>
   </div>
 </template>
 
@@ -167,14 +171,14 @@ export default {
   },
   created() {},
   mounted() {
-    console.log(window.performance);
-    console.log("mounted", Date.now());
+    // console.log(window.performance);
+    // console.log("mounted", Date.now());
     this.$nextTick(function() {
-      console.log("nextTick", Date.now());
+      // console.log("nextTick", Date.now());
     });
     var mountedS = Date.now();
-    console.log("domComplete", window.performance.timing.domComplete);
-    // console.log('cha',window.performance.timing.domComplete - mountedS)
+    // console.log("domComplete", window.performance.timing.domComplete);
+    // // console.log('cha',window.performance.timing.domComplete - mountedS)
     this.setColor();
     $(window).on("orientationchange", function(ev) {
       if (window.orientation === 0) {
@@ -186,30 +190,43 @@ export default {
       }
     });
     $('.dialogBox').bind({'mouseenter':function () {
-      console.log('mouseentermouseentermouseentermouseenter')
+      // console.log('mouseentermouseentermouseentermouseenter')
     },'mouseleave': function () {
-      console.log('mouseleave')
+      // console.log('mouseleave')
     }})
    window.addEventListener('storage', function(e) {
-      console.log(e)
+      // console.log(e)
     })
-    console.log(1111111111111,navigator)
-    console.log('getCurrentPosition',navigator.geolocation.getCurrentPosition())
+    // console.log(1111111111111,navigator)
+    // console.log('getCurrentPosition',navigator.geolocation.getCurrentPosition())
   },
   activated() {},
   deactivated() {},
   watch: {},
   methods: {
+    btnClick(from) {
+      switch (from) {
+        case 'waveBox':
+          $('.waveSubBox').addClass('active')
+          setTimeout(()=>{
+            $('.waveSubBox').removeClass('active')
+          },500)
+          break;
+      
+        default:
+          break;
+      }
+    },
     jqueyAnimateClick () {
       this.$refs.audio.play()
       $('.h-v-center').delay(300).animate({width: '+=50px'},{duration: 1000}).queue(function (next) {
-        console.log('queue')
+        // console.log('queue')
         next()
       }).delay(500).animate({height: '+=50px'})
       sessionStorage.setItem('a',122)
     },
     contextmenu (ev) {
-      console.log(this.$refs.dialogBox)
+      // console.log(this.$refs.dialogBox)
 
       // this.dialogStyle = `position:absolute;left:${ev.pageX}px;top:${ev.pageY}px`
       // this.$refs.elDialog.style.position = `absolute;left:${ev.pageX}px;top:${ev.pageY}px`
@@ -222,10 +239,10 @@ export default {
       // $(this.$refs.dialogBox).fadeTo(1000,0.5,function () {
       // })
       $(this.$refs.dialogBox).fadeOut().fadeToggle().slideUp().slideToggle()
-      console.log(ev)
+      // console.log(ev)
     },
     selectChange(val) {
-      console.log(val);
+      // console.log(val);
       if (val === "brightness") {
       }
     },
@@ -611,5 +628,24 @@ export default {
   border: 1px solid #ddd;
   position: absolute;
   display: none;
+}
+.waveBox{
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  background: rgba(0,255,0,0.5);
+  border-radius: 50%;
+}
+.waveSubBox{
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  background: rgba(0,255,0,0.3);
+  border-radius: 50%;
+}
+.waveSubBox.active{
+  transform: scale(1.2);
+  background: rgba(255,255,255,0);
+  transition: 0.5s all;
 }
 </style>
